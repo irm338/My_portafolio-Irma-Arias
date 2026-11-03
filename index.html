@@ -1,223 +1,201 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irma Yaneht Arias García | Portafolio Profesional</title>
+    <title>Portafolio - Irma Yaneht Arias García</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- FONDO ANIMADO DE PARTÍCULAS / LUCES -->
-    <div class="bg-glow">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
-        <div class="glow-orb orb-3"></div>
-    </div>
-
-    <main class="container-profile">
-        
-        <!-- BARRA LATERAL IZQUIERDA -->
-    <aside class="sidebar">
-        <div class="avatar-container">
-            <div class="avatar-glow"></div>
-            <i class="fa-solid fa-code avatar-icon"></i>
+    <!-- Header y Navegación -->
+    <header class="header">
+        <div class="profile-summary">
+            <h1>Irma Yaneht Arias García</h1>
+            <p>Técnico en Desarrollo de Software</p>
         </div>
-    
-    <div class="sidebar-header">
-        <h1>Irma Yaneht Arias García</h1>
-        <h2 class="username">@IrmaAriasG</h2>
-    </div>
-    ...  
-    
-            <div class="sidebar-header">
-                <h1>Irma Yaneht Arias García</h1>
-                <h2 class="username">@IrmaAriasG</h2>
-            </div>
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'sobre-mi')">
+                <i class="fas fa-user"></i> Sobre Mí
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'experiencia')">
+                <i class="fas fa-briefcase"></i> Experiencia
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'habilidades')">
+                <i class="fas fa-code"></i> Habilidades
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'proyectos')">
+                <i class="fas fa-folder-open"></i> Proyectos
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'educacion')">
+                <i class="fas fa-graduation-cap"></i> Educación
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'contacto')">
+                <i class="fas fa-envelope"></i> Contacto
+            </button>
+        </nav>
+    </header>
 
-            <p class="bio">
-                Estudiante de programación y desarrollo web en Campuslands. Apasionada por construir experiencias web interactivas, interfaces cuidadas y bases de datos eficientes.
-            </p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>yanehtarias12@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>5190 3597</span>
-                </div>
-                <a href="https://github.com" target="_blank" class="github-link-btn">
-                    <i class="fa-brands fa-github"></i> github.com/IrmaAriasG
-                </a>
-            </div>
+    <!-- Contenido Principal -->
+    <main class="container">
 
-            <div class="sidebar-badges">
-                <span class="badge-item"><i class="fa-solid fa-graduation-cap"></i> Campuslands</span>
-                <span class="badge-item"><i class="fa-solid fa-laptop-code"></i> Frontend & DB</span>
-            </div>
-        </aside>
-
-        <!-- CONTENIDO PRINCIPAL DERECHO -->
-        <section class="main-content">
-            
-            <!-- TARJETA DE PRESENTACIÓN ESTILO GITHUB PRO -->
-            <div class="profile-card">
-                <div class="profile-header-tags">
-                    <span class="profile-tag"><i class="fa-solid fa-bolt"></i> DESARROLLADORA WEB</span>
-                    <span class="profile-tag"><i class="fa-solid fa-database"></i> SQL & PYTHON</span>
-                    <div class="profile-check" title="Perfil Verificado"><i class="fa-solid fa-check"></i></div>
-                </div>
-                <div class="profile-bio-card">
-                    <h3>¡Hola, qué tal! 👋 Soy Irma</h3>
-                    <p>
-                        Formándome con rigor técnico en programación. Cuento con una sólida base práctica en maquetación web avanzada con HTML5 y CSS3, dinamismo con JavaScript, y estructuración de bases de datos relacionales. ¡Lista para aportar valor y seguir aprendiendo en equipos de tecnología!
-                    </p>
+        <!-- Pestaña: Sobre Mí -->
+        <section id="sobre-mi" class="tab-content active">
+            <h2><i class="fas fa-user-astronaut"></i> Sobre Mí</h2>
+            <div class="card">
+                <p>
+                    Desarrolladora de software en formación, apasionada por construir aplicaciones web.
+                    Enfoque en aplicar buenas prácticas de código limpio y estructurado, buscando que los
+                    proyectos sean creativos y funcionales.
+                </p>
+                <p>
+                    Me gusta aprender cosas nuevas, especialmente si están basadas en tecnología, practicar deportes,
+                    escuchar música, cocinar y pasar tiempo en familia.
+                </p>
+                <div class="quick-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Ciudad de Guatemala, Z.13</span>
+                    <span><i class="fas fa-language"></i> Español (Nativo) | Inglés (Básico)</span>
                 </div>
             </div>
-
-            <!-- SECCIÓN DE STACK TECNOLÓGICO -->
-            <div class="stack-section">
-                <h2><i class="fa-solid fa-layer-group"></i> Mi Stack Tecnológico</h2>
-                <div class="stack-grid">
-                    
-                    <div class="stack-item html-tech">
-                        <i class="fa-brands fa-html5"></i>
-                        <div class="stack-info">
-                            <span>HTML5</span>
-                            <small>Semántica y Estructura</small>
-                        </div>
-                    </div>
-
-                    <div class="stack-item css-tech">
-                        <i class="fa-brands fa-css3-alt"></i>
-                        <div class="stack-info">
-                            <span>CSS3</span>
-                            <small>Diseño y Animaciones</small>
-                        </div>
-                    </div>
-
-                    <div class="stack-item js-tech">
-                        <i class="fa-brands fa-js"></i>
-                        <div class="stack-info">
-                            <span>JavaScript</span>
-                            <small>Interactividad y Lógica</small>
-                        </div>
-                    </div>
-
-                    <div class="stack-item db-tech">
-                        <i class="fa-solid fa-database"></i>
-                        <div class="stack-info">
-                            <span>Base de Datos</span>
-                            <small>SQL y Relacionales</small>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- SECCIÓN DE PROYECTOS DESTACADOS -->
-            <div class="projects-section">
-                <h2><i class="fa-solid fa-rocket"></i> Proyectos Destacados</h2>
-                <div class="projects-grid">
-
-                    <!-- PROYECTO 1 -->
-                    <article class="project-card">
-                        <div class="project-glow"></div>
-                        <div class="project-content">
-                            <div class="project-top">
-                                <h3>CampusShop</h3>
-                                <span class="project-status">Completado</span>
-                            </div>
-                            <p>Maquetación avanzada de plataforma e-commerce estructurada con múltiples vistas, enfocada en una experiencia de usuario limpia y adaptable mediante HTML5 y CSS3.</p>
-                            <div class="project-techs">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                            </div>
-                            <div class="project-footer">
-                                <a href="https://github.com" target="_blank" class="project-link-btn">
-                                    <i class="fa-brands fa-github"></i> Ver en GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- PROYECTO 2 -->
-                    <article class="project-card">
-                        <div class="project-glow"></div>
-                        <div class="project-content">
-                            <div class="project-top">
-                                <h3>CampusParking</h3>
-                                <span class="project-status">Completado</span>
-                            </div>
-                            <p>Interfaz interactiva desarrollada para la administración y control dinámico de flujos en un sistema de estacionamiento web moderno.</p>
-                            <div class="project-techs">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="project-footer">
-                                <a href="https://github.com" target="_blank" class="project-link-btn">
-                                    <i class="fa-brands fa-github"></i> Ver en GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- PROYECTO 3 -->
-                    <article class="project-card">
-                        <div class="project-glow"></div>
-                        <div class="project-content">
-                            <div class="project-top">
-                                <h3>EduTrack</h3>
-                                <span class="project-status">Completado</span>
-                            </div>
-                            <p>Landing page y panel de información tecnológica con layouts semánticos avanzados, tarjetas visuales de datos y navegación fluida.</p>
-                            <div class="project-techs">
-                                <span>HTML5</span>
-                                <span>CSS3</span>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="project-footer">
-                                <a href="https://github.com" target="_blank" class="project-link-btn">
-                                    <i class="fa-brands fa-github"></i> Ver en GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- PROYECTO 4 -->
-                    <article class="project-card">
-                        <div class="project-glow"></div>
-                        <div class="project-content">
-                            <div class="project-top">
-                                <h3>CineMax Database</h3>
-                                <span class="project-status">Completado</span>
-                            </div>
-                            <p>Implementación de arquitectura relacional en SQLite con tablas estructurales, restricciones de integridad y consultas operacionales eficientes.</p>
-                            <div class="project-techs">
-                                <span>SQL</span>
-                                <span>Base de Datos</span>
-                            </div>
-                            <div class="project-footer">
-                                <a href="https://github.com" target="_blank" class="project-link-btn">
-                                    <i class="fa-brands fa-github"></i> Ver en GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-
         </section>
+
+        <!-- Pestaña: Experiencia Laboral -->
+        <section id="experiencia" class="tab-content">
+            <h2><i class="fas fa-briefcase"></i> Experiencia Laboral</h2>
+            
+            <div class="card timeline-item">
+                <div class="badge">2026 - En proceso</div>
+                <h3>Proyecto Kid-Fit - Ejercitación Infantil</h3>
+                <h4>Desarrollo Móvil / Web</h4>
+                <ul>
+                    <li>Desarrollo de aplicación móvil infantil para promover el ejercicio e hidratación.</li>
+                    <li>Implementación de arquitectura frontend y backend serverless en Firebase.</li>
+                    <li>Control de versiones en Git y trabajo estructurado bajo metodología ágil Scrum para asegurar calidad y compatibilidad multiplataforma.</li>
+                </ul>
+            </div>
+
+            <div class="card timeline-item">
+                <div class="badge">2025 - 2026</div>
+                <h3>IT Generalista - IntouchCX</h3>
+                <ul>
+                    <li>Atención directa al cliente y recepción.</li>
+                    <li>Resolución de problemas técnicos a nivel computacional y soporte técnico directo.</li>
+                    <li>Trabajo adquirido posterior a la práctica supervisada.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Pestaña: Habilidades -->
+        <section id="habilidades" class="tab-content">
+            <h2><i class="fas fa-laptop-code"></i> Habilidades y Competencias</h2>
+            
+            <div class="skills-grid">
+                <div class="card">
+                    <h3><i class="fas fa-tools"></i> TÉCNICAS</h3>
+                    <ul class="skills-list">
+                        <li><strong>HTML5 & CSS3:</strong> Estructura y maquetación visual responsiva.</li>
+                        <li><strong>JavaScript:</strong> Dinamismo, interactividad y lógica del cliente.</li>
+                        <li><strong>Git & GitHub:</strong> Control de versiones y gestión de repositorios.</li>
+                        <li><strong>Bases de Datos:</strong> SQL (SQLite) / Firebase Serverless.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-brain"></i> ADAPTATIVAS</h3>
+                    <ul class="skills-list">
+                        <li><strong>Trabajo en equipo y empatía:</strong> Colaboración activa y relaciones interpersonales sanas.</li>
+                        <li><strong>Comunicación asertiva:</strong> Transmisión clara de ideas con compañeros y clientes.</li>
+                        <li><strong>Adaptabilidad:</strong> Agilidad para aprender nuevas tecnologías y ajustarme a cambios.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pestaña: Proyectos Destacados -->
+        <section id="proyectos" class="tab-content">
+            <h2><i class="fas fa-rocket"></i> Proyectos Formativos</h2>
+            <div class="projects-grid">
+
+                <div class="card project-card">
+                    <h3>KidFit</h3>
+                    <p>Aplicación para promover el ejercicio e hidratación infantil con arquitectura Firebase y metodología Scrum.</p>
+                    <span class="tech-tag">JavaScript</span><span class="tech-tag">Firebase</span><span class="tech-tag">Git</span>
+                </div>
+
+                <div class="card project-card">
+                    <h3>CampusShop</h3>
+                    <p>Maquetación estática de plataforma e-commerce desarrollada durante el entrenamiento formativo.</p>
+                    <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span>
+                </div>
+
+                <div class="card project-card">
+                    <h3>CampusParking</h3>
+                    <p>Interfaz para la administración y control de estacionamientos.</p>
+                    <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JS</span>
+                </div>
+
+                <div class="card project-card">
+                    <h3>EduTrack</h3>
+                    <p>Landing page y dashboard educativo para seguimiento académico.</p>
+                    <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JS</span>
+                </div>
+
+                <div class="card project-card">
+                    <h3>CineMax</h3>
+                    <p>Base de datos relacional para cines con gestión estructurada de información.</p>
+                    <span class="tech-tag">SQLite</span><span class="tech-tag">SQL</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Pestaña: Educación -->
+        <section id="educacion" class="tab-content">
+            <h2><i class="fas fa-graduation-cap"></i> Educación y Certificaciones</h2>
+            
+            <div class="card">
+                <h3>Programación y Desarrollo Web</h3>
+                <p><strong>Campuslands</strong></p>
+            </div>
+
+            <div class="card">
+                <h3>Bachiller en Ciencias y Letras con Orientación en Electrónica Industrial</h3>
+                <p><strong>Escuela Experimental con Orientación Ocupacional Hermanas de María "Villa de los Niños"</strong></p>
+            </div>
+
+            <div class="card">
+                <h3>Capacitaciones y Certificaciones INTECAP</h3>
+                <ul class="cert-list">
+                    <li>Electrónica Industrial</li>
+                    <li>Computación Básica (Word, Excel, PowerPoint)</li>
+                    <li>Comunicación Asertiva</li>
+                    <li>Reparación de Electrodomésticos</li>
+                    <li>Corte y Confección</li>
+                    <li>Alimentos</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Pestaña: Contacto -->
+        <section id="contacto" class="tab-content">
+            <h2><i class="fas fa-paper-plane"></i> Contacto y Redes</h2>
+            <div class="card contact-card">
+                <p><i class="fas fa-envelope"></i> <strong>Correo:</strong> <a href="mailto:yanehtarias12@gmail.com">yanehtarias12@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> <a href="tel:51903597">5190 3597</a></p>
+                <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank">Ver perfil</a></p>
+                <p><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/irm338" target="_blank">github.com/irm338</a></p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <p>&copy; 2026 - Diseñado con excelencia y pasión por <strong>Irma Yaneht Arias García</strong> 🚀</p>
+        <p>© 2026 Irma Yaneht Arias García — Diseñado con pasión y rigor técnico.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
