@@ -5,7 +5,7 @@
 
 ---
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 He enfocado mi aprendizaje en el dominio de herramientas esenciales para la creación de interfaces web y gestión de datos:
 * **Frontend:** HTML5, CSS3, JavaScript
 * **Herramientas:** Git, GitHub, n8n (Automatizaciones)
