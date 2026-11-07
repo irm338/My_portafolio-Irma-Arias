@@ -4,237 +4,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irma Yaneht Arias García | Portafolio Profesional</title>
+    <title>Irma Yaneht Arias García - Portafolio</title>
+    <!-- Enlace a las fuentes de Google Fonts (Poppins e Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Enlace a la hoja de estilos externa -->
     <link rel="stylesheet" href="style.css">
-    <!-- Iconos y Fuentes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Fondo con Efecto de Luces (Glow) -->
-    <div class="glow-bg">
-        <div class="glow-circle circle-1"></div>
-        <div class="glow-circle circle-2"></div>
+    <!-- Fondo con efecto difuminado / degradado de colores -->
+    <div class="background-blobs">
+        <div class="blob blob-lila"></div>
+        <div class="blob blob-aqua"></div>
+        <div class="blob blob-celeste"></div>
+        <div class="blob blob-rosado"></div>
+        <div class="blob blob-amarillo"></div>
+        <div class="blob blob-musgo"></div>
+        <div class="blob blob-rojo"></div>
+        <div class="blob blob-pavo"></div>
     </div>
 
-    <div class="portfolio-container">
-        <!-- Header / Perfil -->
-        <header class="profile-header">
-            <div class="avatar-container">
-                <div class="avatar-ring">
-                    <i class="fas fa-code"></i>
+    <!-- Navegación Superior por Botones / Secciones -->
+    <header class="navbar">
+        <div class="nav-container">
+            <span class="logo">Irma Arias</span>
+            <nav class="nav-links">
+                <a href="#inicio" class="nav-btn">Inicio</a>
+                <a href="#sobre-mi" class="nav-btn">Sobre mí</a>
+                <a href="#habilidades" class="nav-btn">Habilidades</a>
+                <a href="#proyectos" class="nav-btn">Proyectos</a>
+                <a href="#experiencia" class="nav-btn">Experiencia</a>
+                <a href="#contacto" class="nav-btn">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- SECCIÓN INICIO -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-card">
+                <!-- 
+                    NOTA PARA CAMBIAR TU FOTO: 
+                    Reemplaza el enlace de la imagen en 'src="..."' por la ruta de tu foto personal (ej. 'img/mi-foto.jpg')
+                -->
+                <div class="profile-img-container">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Irma Yaneht Arias García" class="profile-img">
+                </div>
+                <div class="hero-info">
+                    <h1>Irma Yaneht Arias García</h1>
+                    <h2>Técnico en Desarrollo de Software</h2>
+                    <p class="hero-location">📍 Ciudad de Guatemala, Z.13</p>
+                    <div class="hero-contact-data">
+                        <span>📞 5190 3597</span> | 
+                        <span>✉️ yanehtarias12@gmail.com</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                        <a href="#contacto" class="btn btn-secondary">Contactar</a>
+                    </div>
                 </div>
             </div>
-            <h1>Irma Yaneht Arias García</h1>
-            <p class="subtitle"><span class="highlight-role">Técnico en Desarrollo de Software</span></p>
-            <div class="header-badges">
-                <span><i class="fas fa-map-marker-alt"></i> Ciudad de Guatemala, Z.13</span>
-                <span><i class="fas fa-circle status-dot"></i> Disponible para proyectos</span>
+        </section>
+
+        <!-- SECCIÓN SOBRE MÍ -->
+        <section id="sobre-mi" class="content-section">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="card-box">
+                <p>Desarrolladora de software en formación, apasionada por construir aplicaciones web. Enfoque en aplicar buenas prácticas de código limpio y estructurado, buscando que los proyectos sean creativos y funcionales. Me gusta aprender cosas nuevas especialmente si está basada en tecnología, practicar deportes, escuchar música, cocinar y pasar tiempo en familia.</p>
             </div>
-        </header>
+        </section>
 
-        <!-- Navegación por Pestañas Estilizadas -->
-        <nav class="nav-tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'sobre-mi')">
-                <i class="fas fa-user-astronaut"></i> Sobre Mí
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'experiencia')">
-                <i class="fas fa-briefcase"></i> Experiencia
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'habilidades')">
-                <i class="fas fa-layer-group"></i> Habilidades
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'proyectos')">
-                <i class="fas fa-rocket"></i> Proyectos
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'educacion')">
-                <i class="fas fa-graduation-cap"></i> Educación
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'referencias')">
-                <i class="fas fa-address-book"></i> Referencias
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'contacto')">
-                <i class="fas fa-paper-plane"></i> Contacto
-            </button>
-        </nav>
+        <!-- SECCIÓN HABILIDADES -->
+        <section id="habilidades" class="content-section">
+            <h2 class="section-title">Habilidades y Competencias</h2>
+            <div class="skills-grid">
+                <div class="card-box">
+                    <h3>Habilidades Técnicas</h3>
+                    <ul>
+                        <li><strong>HTML5 & CSS3:</strong> Lenguajes de marcado y diseño para estructurar y dar estilo visual responsivo.</li>
+                        <li><strong>JavaScript:</strong> Programación para añadir dinamismo, interactividad y lógica del lado del cliente.</li>
+                        <li><strong>Git & GitHub:</strong> Sistema de control de versiones y plataforma colaborativa (Usuario: <em>irm338</em>).</li>
+                    </ul>
+                </div>
+                <div class="card-box">
+                    <h3>Habilidades Adaptativas</h3>
+                    <p>Resolución de problemas, trabajo en equipo, comunicación asertiva, empatía y adaptabilidad.</p>
+                </div>
+                <div class="card-box">
+                    <h3>Idiomas y Educación</h3>
+                    <p><strong>Idiomas:</strong> Español (Nativo) | Inglés (Básico)</p>
+                    <p><strong>Educación:</strong> Campuslands (Desarrollo Web) | Villa de los Niños (Electrónica Industrial).</p>
+                </div>
+            </div>
+        </section>
 
-        <!-- Contenido de las Pestañas -->
-        <main class="content-body">
-
-            <!-- Pestaña: Sobre Mí -->
-            <section id="sobre-mi" class="tab-content active">
-                <div class="glass-card">
-                    <h2><i class="fas fa-fingerprint"></i> Sobre Mí</h2>
-                    <p class="bio-text">
-                        Desarrolladora de software en formación, apasionada por construir aplicaciones web. Enfoque en aplicar buenas prácticas de código limpio y estructurado, buscando que los proyectos sean creativos y funcionales. Me gusta aprender cosas nuevas especialmente si está basada en tecnología, practicar deportes, escuchar música, cocinar y pasar tiempo en familia.
-                    </p>
-                    <div class="quick-stats">
-                        <div class="stat-item">
-                            <i class="fas fa-language"></i>
-                            <div>
-                                <strong>Idiomas</strong>
-                                <p>Español (Nativo) | Inglés (Básico)</p>
-                            </div>
-                        </div>
+        <!-- SECCIÓN PROYECTOS -->
+        <section id="proyectos" class="content-section">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <!-- Tarjeta de Proyecto 1 -->
+                <div class="project-card">
+                    <h3>Proyecto Kid-Fit</h3>
+                    <p class="project-desc">Aplicación móvil y web interactiva para niños de 5 a 12 años enfocada en promover la actividad física y la hidratación mediante captura de movimiento en tiempo real y arquitectura serverless.</p>
+                    <p class="project-tech"><strong>Tecnologías:</strong> React Native, MediaPipe Pose, Firebase, AsyncStorage</p>
+                    <div class="project-buttons">
+                        <a href="#" class="btn btn-primary" target="_blank">Ver Proyecto</a>
+                        <a href="https://github.com/irm338" class="btn btn-secondary" target="_blank">Ver Código</a>
                     </div>
                 </div>
-            </section>
 
-            <!-- Pestaña: Experiencia -->
-            <section id="experiencia" class="tab-content">
-                <div class="timeline-container">
-                    <div class="glass-card timeline-card">
-                        <span class="badge-time">2026 - En proceso</span>
-                        <h3>Proyecto Kid-Fit - Ejercitación Infantil</h3>
-                        <h4>Desarrollo Móvil / Web</h4>
-                        <ul>
-                            <li>Desarrollo de aplicación móvil infantil para promover el ejercicio e hidratación. Implementación de arquitectura frontend y backend serverless en Firebase, control de versiones en Git y trabajo estructurado bajo metodología ágil Scrum para asegurar calidad y compatibilidad multiplataforma.</li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card timeline-card">
-                        <span class="badge-time">2025 - 2026</span>
-                        <h3>IT Generalista - IntouchCX</h3>
-                        <ul>
-                            <li>Atención directa al cliente, resolución de problemas técnicos a nivel computacional, recepcionista y atención directa con los clientes. Trabajo adquirido posterior a la práctica supervisada.</li>
-                        </ul>
+                <!-- Tarjeta de Proyecto 2 -->
+                <div class="project-card">
+                    <h3>KarenFlix - Catálogo de Películas</h3>
+                    <p class="project-desc">Sistema de gestión de base de datos para un catálogo de películas estructurado bajo relaciones 3NF y coordinado mediante metodologías ágiles.</p>
+                    <p class="project-tech"><strong>Tecnologías:</strong> Node.js, Express, ClickUp</p>
+                    <div class="project-buttons">
+                        <a href="#" class="btn btn-primary" target="_blank">Ver Proyecto</a>
+                        <a href="https://github.com/irm338" class="btn btn-secondary" target="_blank">Ver Código</a>
                     </div>
                 </div>
-            </section>
 
-            <!-- Pestaña: Habilidades -->
-            <section id="habilidades" class="tab-content">
-                <p class="section-desc">Conjunto de competencias técnicas orientadas al desarrollo web moderno y control de versiones, complementadas con habilidades blandas esenciales para la colaboración efectiva y resolución de desafíos tecnológicos.</p>
-                
-                <div class="skills-grid">
-                    <div class="glass-card">
-                        <h3><i class="fas fa-laptop-code"></i> Habilidades Técnicas</h3>
-                        <div class="skill-tags-list">
-                            <p><strong>HTML5 & CSS3:</strong> Lenguajes de marcado y diseño encargados de estructurar y dar estilo visual responsivo a las páginas web.</p>
-                            <p><strong>JavaScript:</strong> Lenguaje de programación que añade dinamismo, interactividad y lógica del lado del cliente a las aplicaciones.</p>
-                            <p><strong>Git & GitHub:</strong> Sistema de control de versiones y plataforma colaborativa para gestionar el historial y repositorio del código fuente.</p>
-                        </div>
-                    </div>
-                    <div class="glass-card">
-                        <h3><i class="fas fa-users-cog"></i> Habilidades Adaptativas</h3>
-                        <div class="skill-tags-list">
-                            <p><strong>Trabajo en equipo y empatía:</strong> Colaboración y relaciones interpersonales sanas.</p>
-                            <p><strong>Comunicación asertiva:</strong> Transmisión clara de ideas con compañeros y clientes.</p>
-                            <p><strong>Adaptabilidad:</strong> Agilidad para aprender nuevas tecnologías y ajustarme a cambios.</p>
-                        </div>
+                <!-- Tarjeta de Proyecto 3 -->
+                <div class="project-card">
+                    <h3>FitCoreCLI-Yani</h3>
+                    <p class="project-desc">Aplicación modular de consola para la gestión integral de un gimnasio, implementando patrones de repositorio y programación orientada a objetos.</p>
+                    <p class="project-tech"><strong>Tecnologías:</strong> Node.js, JavaScript, CLI</p>
+                    <div class="project-buttons">
+                        <a href="#" class="btn btn-primary" target="_blank">Ver Proyecto</a>
+                        <a href="https://github.com/irm338" class="btn btn-secondary" target="_blank">Ver Código</a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Pestaña: Proyectos -->
-            <section id="proyectos" class="tab-content">
-                <div class="projects-grid">
-                    <div class="glass-card project-card">
-                        <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
-                        <h3>KidFit</h3>
-                        <p>Aplicación móvil infantil para promover el ejercicio e hidratación con arquitectura Firebase y metodología Scrum.</p>
-                        <div class="card-techs"><span>JavaScript</span><span>Firebase</span><span>Git</span><span>Scrum</span></div>
-                    </div>
-                    <div class="glass-card project-card">
-                        <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
-                        <h3>CampusShop</h3>
-                        <p>Maquetación estática de plataforma e-commerce desarrollada en el entrenamiento.</p>
-                        <div class="card-techs"><span>HTML5</span><span>CSS3</span></div>
-                    </div>
-                    <div class="glass-card project-card">
-                        <div class="project-icon"><i class="fas fa-parking"></i></div>
-                        <h3>CampusParking</h3>
-                        <p>Interfaz para la administración y control de estacionamientos.</p>
-                        <div class="card-techs"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
-                    </div>
-                    <div class="glass-card project-card">
-                        <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3>EduTrack</h3>
-                        <p>Landing page y dashboard educativo interactivo.</p>
-                        <div class="card-techs"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
-                    </div>
-                    <div class="glass-card project-card">
-                        <div class="project-icon"><i class="fas fa-film"></i></div>
-                        <h3>CineMax</h3>
-                        <p>Base de datos relacional para cines.</p>
-                        <div class="card-techs"><span>SQLite</span><span>SQL</span></div>
-                    </div>
+        <!-- SECCIÓN EXPERIENCIA -->
+        <section id="experiencia" class="content-section">
+            <h2 class="section-title">Experiencia Laboral</h2>
+            <div class="card-box">
+                <div class="exp-item">
+                    <h3>Proyecto Kid-Fit — <em>Desarrollo Móvil / Web</em></h3>
+                    <span class="exp-date">2026 (En proceso)</span>
+                    <p>Desarrollo de aplicación móvil infantil para promover el ejercicio y la hidratación. Implementación de arquitectura frontend y backend serverless en Firebase, control de versiones en Git y trabajo estructurado bajo metodología ágil Scrum.</p>
                 </div>
-            </section>
-
-            <!-- Pestaña: Educación -->
-            <section id="educacion" class="tab-content">
-                <div class="education-grid">
-                    <div class="glass-card">
-                        <i class="fas fa-university card-badge-icon"></i>
-                        <h3>Estudiante de Programación y Desarrollo Web</h3>
-                        <p class="institution">Campuslands</p>
-                    </div>
-                    <div class="glass-card">
-                        <i class="fas fa-school card-badge-icon"></i>
-                        <h3>Bachiller en Ciencias y Letras con Orientación en Electrónica Industrial</h3>
-                        <p class="institution">Escuela Experimental con Orientación Ocupacional Hermanas de María "Villa de los Niños"</p>
-                    </div>
-                    <div class="glass-card full-width">
-                        <h3><i class="fas fa-certificate"></i> Capacitaciones y Certificaciones INTECAP</h3>
-                        <ul class="intecap-list">
-                            <li>Certificación en Electrónica Industrial</li>
-                            <li>Computación Básica (Word, Excel, PowerPoint)</li>
-                            <li>Comunicación Asertiva</li>
-                            <li>Reparación de Electrodomésticos</li>
-                            <li>Corte y Confección</li>
-                            <li>Alimentos</li>
-                        </ul>
-                    </div>
+                <hr class="divider">
+                <div class="exp-item">
+                    <h3>IT Generalista — <em>IntouchCX</em></h3>
+                    <span class="exp-date">2025 - 2026</span>
+                    <p>Atención directa al cliente, resolución de problemas técnicos a nivel computacional, recepcionista y atención directa con los clientes. Experiencia adquirida posterior a la práctica supervisada.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Pestaña: Referencias -->
-            <section id="referencias" class="tab-content">
-                <div class="skills-grid">
-                    <div class="glass-card">
-                        <h3><i class="fas fa-user-tie"></i> Licda. Karim Rodriguez</h3>
-                        <p class="institution">Directora Administrativa</p>
-                        <p class="ref-tel"><i class="fas fa-phone"></i> Tel: 4254 6976</p>
-                    </div>
-                    <div class="glass-card">
-                        <h3><i class="fas fa-user-tie"></i> Licdo. Jonathan García</h3>
-                        <p class="institution">Docente</p>
-                        <p class="ref-tel"><i class="fas fa-phone"></i> Tel: 3255 9575</p>
-                    </div>
+        <!-- SECCIÓN CONTACTO -->
+        <section id="contacto" class="content-section">
+            <h2 class="section-title">Contacto</h2>
+            <div class="card-box text-center">
+                <p>¿Interesado en mi perfil o en colaborar en un proyecto? ¡Hablemos!</p>
+                <p><strong>Teléfono:</strong> 5190 3597</p>
+                <p><strong>Correo Electrónico:</strong> yanehtarias12@gmail.com</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/irm338" target="_blank">github.com/irm338</a></p>
+                <div class="hero-actions" style="margin-top: 20px;">
+                    <a href="mailto:yanehtarias12@gmail.com" class="btn btn-primary">Enviar Correo</a>
                 </div>
-            </section>
+            </div>
+        </section>
+    </main>
 
-            <!-- Pestaña: Contacto -->
-            <section id="contacto" class="tab-content">
-                <div class="glass-card contact-box">
-                    <h2><i class="fas fa-paper-plane"></i> Contacto</h2>
-                    <p>Ponte en contacto conmigo a través de mis canales profesionales:</p>
-                    <div class="contact-links">
-                        <a href="mailto:yanehtarias12@gmail.com" class="contact-btn">
-                            <i class="fas fa-envelope"></i> yanehtarias12@gmail.com
-                        </a>
-                        <a href="tel:51903597" class="contact-btn">
-                            <i class="fas fa-phone-alt"></i> 5190 3597
-                        </a>
-                        <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" class="contact-btn">
-                            <i class="fab fa-linkedin-in"></i> LinkedIn
-                        </a>
-                        <a href="https://github.com/irm338?tab=repositories" target="_blank" class="contact-btn">
-                            <i class="fab fa-github"></i> GitHub Repositories
-                        </a>
-                    </div>
-                </div>
-            </section>
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>&copy; 2026 Irma Yaneht Arias García. Todos los derechos reservados.</p>
+    </footer>
 
-        </main>
-
-        <footer class="portfolio-footer">
-            <p>© 2026 Irma Yaneht Arias García — Técnico en desarrollo de software</p>
-        </footer>
-    </div>
-
+    <!-- Enlace al archivo JavaScript externo -->
     <script src="script.js"></script>
 </body>
 </html>
