@@ -1,19 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Irma Yaneht Arias García - Portafolio</title>
-    <!-- Enlace a las fuentes de Google Fonts (Poppins e Inter) -->
+    <!-- Fuentes de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-    <!-- Enlace a la hoja de estilos externa -->
+    <!-- Enlace a la hoja de estilos -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Fondo con efecto difuminado / degradado de colores -->
-    <div class="background-blobs">
+    <!-- Fondo oscuro con esferas difuminadas de todos los colores y líneas de código -->
+    <div class="background-glow">
+        <div class="code-lines-bg">
+            &lt;html&gt; &lt;body&gt; const developer = "Irma Arias"; &lt;div class="code"&gt; function init() { return true; } &lt;/div&gt; git commit -m "update" npm run build; div &gt; span { color: aqua; }
+        </div>
         <div class="blob blob-lila"></div>
         <div class="blob blob-aqua"></div>
         <div class="blob blob-celeste"></div>
@@ -24,12 +26,12 @@
         <div class="blob blob-pavo"></div>
     </div>
 
-    <!-- Navegación Superior por Botones / Secciones -->
+    <!-- Barra de navegación superior -->
     <header class="navbar">
         <div class="nav-container">
             <span class="logo">Irma Arias</span>
             <nav class="nav-links">
-                <a href="#inicio" class="nav-btn">Inicio</a>
+                <a href="#inicio" class="nav-btn active">Inicio</a>
                 <a href="#sobre-mi" class="nav-btn">Sobre mí</a>
                 <a href="#habilidades" class="nav-btn">Habilidades</a>
                 <a href="#proyectos" class="nav-btn">Proyectos</a>
@@ -42,23 +44,24 @@
     <main class="main-content">
         <!-- SECCIÓN INICIO -->
         <section id="inicio" class="hero-section">
-            <div class="hero-card">
-                <!-- 
-                    NOTA PARA CAMBIAR TU FOTO: 
-                    Reemplaza el enlace de la imagen en 'src="..."' por la ruta de tu foto personal (ej. 'img/mi-foto.jpg')
-                -->
+            <div class="glass-card hero-card">
                 <div class="profile-img-container">
+                    <!-- Cambia este src por la ruta de tu foto personal si lo deseas -->
                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Irma Yaneht Arias García" class="profile-img">
                 </div>
                 <div class="hero-info">
-                    <h1>Irma Yaneht Arias García</h1>
+                    <h1 class="color-change-title">Irma Yaneht Arias García</h1>
                     <h2>Técnico en Desarrollo de Software</h2>
                     <p class="hero-location">📍 Ciudad de Guatemala, Z.13</p>
                     <div class="hero-contact-data">
                         <span>📞 5190 3597</span> | 
                         <span>✉️ yanehtarias12@gmail.com</span>
                     </div>
-                    <div class="hero-actions">
+                    <div class="hero-socials" style="margin-top: 8px;">
+                        <span>💼 <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank">LinkedIn</a></span> | 
+                        <span>🐙 <a href="https://github.com/irm338" target="_blank">GitHub</a></span>
+                    </div>
+                    <div class="hero-actions" style="margin-top: 15px;">
                         <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
                         <a href="#contacto" class="btn btn-secondary">Contactar</a>
                     </div>
@@ -68,55 +71,53 @@
 
         <!-- SECCIÓN SOBRE MÍ -->
         <section id="sobre-mi" class="content-section">
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="card-box">
+            <h2 class="section-title color-change-title">Sobre Mí</h2>
+            <div class="glass-card">
                 <p>Desarrolladora de software en formación, apasionada por construir aplicaciones web. Enfoque en aplicar buenas prácticas de código limpio y estructurado, buscando que los proyectos sean creativos y funcionales. Me gusta aprender cosas nuevas especialmente si está basada en tecnología, practicar deportes, escuchar música, cocinar y pasar tiempo en familia.</p>
             </div>
         </section>
 
         <!-- SECCIÓN HABILIDADES -->
         <section id="habilidades" class="content-section">
-            <h2 class="section-title">Habilidades y Competencias</h2>
+            <h2 class="section-title color-change-title">Habilidades y Competencias</h2>
             <div class="skills-grid">
-                <div class="card-box">
+                <div class="glass-card">
                     <h3>Habilidades Técnicas</h3>
                     <ul>
-                        <li><strong>HTML5 & CSS3:</strong> Lenguajes de marcado y diseño para estructurar y dar estilo visual responsivo.</li>
-                        <li><strong>JavaScript:</strong> Programación para añadir dinamismo, interactividad y lógica del lado del cliente.</li>
-                        <li><strong>Git & GitHub:</strong> Sistema de control de versiones y plataforma colaborativa (Usuario: <em>irm338</em>).</li>
+                        <li><strong>HTML5 & CSS3:</strong> Lenguajes de marcado y diseño responsivo.</li>
+                        <li><strong>JavaScript:</strong> Interactividad y lógica del lado del cliente.</li>
+                        <li><strong>Git & GitHub:</strong> Control de versiones (Usuario: <em>irm338</em>).</li>
                     </ul>
                 </div>
-                <div class="card-box">
+                <div class="glass-card">
                     <h3>Habilidades Adaptativas</h3>
                     <p>Resolución de problemas, trabajo en equipo, comunicación asertiva, empatía y adaptabilidad.</p>
                 </div>
-                <div class="card-box">
+                <div class="glass-card">
                     <h3>Idiomas y Educación</h3>
                     <p><strong>Idiomas:</strong> Español (Nativo) | Inglés (Básico)</p>
-                    <p><strong>Educación:</strong> Campuslands (Desarrollo Web) | Villa de los Niños (Electrónica Industrial).</p>
+                    <p><strong>Educación:</strong> Campuslands y Villa de los Niños.</p>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN PROYECTOS -->
         <section id="proyectos" class="content-section">
-            <h2 class="section-title">Proyectos Destacados</h2>
+            <h2 class="section-title color-change-title">Proyectos Destacados</h2>
             <div class="projects-grid">
-                <!-- Tarjeta de Proyecto 1 -->
-                <div class="project-card">
+                <div class="glass-card project-card">
                     <h3>Proyecto Kid-Fit</h3>
-                    <p class="project-desc">Aplicación móvil y web interactiva para niños de 5 a 12 años enfocada en promover la actividad física y la hidratación mediante captura de movimiento en tiempo real y arquitectura serverless.</p>
-                    <p class="project-tech"><strong>Tecnologías:</strong> React Native, MediaPipe Pose, Firebase, AsyncStorage</p>
+                    <p class="project-desc">Aplicación móvil y web interactiva para niños de 5 a 12 años enfocada en promover la actividad física y la hidratación mediante captura de movimiento en tiempo real.</p>
+                    <p class="project-tech"><strong>Tecnologías:</strong> React Native, MediaPipe Pose, Firebase</p>
                     <div class="project-buttons">
                         <a href="#" class="btn btn-primary" target="_blank">Ver Proyecto</a>
                         <a href="https://github.com/irm338" class="btn btn-secondary" target="_blank">Ver Código</a>
                     </div>
                 </div>
 
-                <!-- Tarjeta de Proyecto 2 -->
-                <div class="project-card">
-                    <h3>KarenFlix - Catálogo de Películas</h3>
-                    <p class="project-desc">Sistema de gestión de base de datos para un catálogo de películas estructurado bajo relaciones 3NF y coordinado mediante metodologías ágiles.</p>
+                <div class="glass-card project-card">
+                    <h3>KarenFlix - Catálogo</h3>
+                    <p class="project-desc">Sistema de gestión de base de datos para un catálogo de películas estructurado bajo relaciones 3NF.</p>
                     <p class="project-tech"><strong>Tecnologías:</strong> Node.js, Express, ClickUp</p>
                     <div class="project-buttons">
                         <a href="#" class="btn btn-primary" target="_blank">Ver Proyecto</a>
@@ -124,10 +125,9 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta de Proyecto 3 -->
-                <div class="project-card">
+                <div class="glass-card project-card">
                     <h3>FitCoreCLI-Yani</h3>
-                    <p class="project-desc">Aplicación modular de consola para la gestión integral de un gimnasio, implementando patrones de repositorio y programación orientada a objetos.</p>
+                    <p class="project-desc">Aplicación modular de consola para la gestión integral de un gimnasio con patrones de repositorio.</p>
                     <p class="project-tech"><strong>Tecnologías:</strong> Node.js, JavaScript, CLI</p>
                     <div class="project-buttons">
                         <a href="#" class="btn btn-primary" target="_blank">Ver Proyecto</a>
@@ -139,32 +139,34 @@
 
         <!-- SECCIÓN EXPERIENCIA -->
         <section id="experiencia" class="content-section">
-            <h2 class="section-title">Experiencia Laboral</h2>
-            <div class="card-box">
+            <h2 class="section-title color-change-title">Experiencia Laboral</h2>
+            <div class="glass-card">
                 <div class="exp-item">
                     <h3>Proyecto Kid-Fit — <em>Desarrollo Móvil / Web</em></h3>
                     <span class="exp-date">2026 (En proceso)</span>
-                    <p>Desarrollo de aplicación móvil infantil para promover el ejercicio y la hidratación. Implementación de arquitectura frontend y backend serverless en Firebase, control de versiones en Git y trabajo estructurado bajo metodología ágil Scrum.</p>
+                    <p>Desarrollo de aplicación móvil infantil para promover el ejercicio y la hidratación con arquitectura serverless en Firebase.</p>
                 </div>
                 <hr class="divider">
                 <div class="exp-item">
                     <h3>IT Generalista — <em>IntouchCX</em></h3>
                     <span class="exp-date">2025 - 2026</span>
-                    <p>Atención directa al cliente, resolución de problemas técnicos a nivel computacional, recepcionista y atención directa con los clientes. Experiencia adquirida posterior a la práctica supervisada.</p>
+                    <p>Atención directa al cliente, resolución de problemas técnicos a nivel computacional y soporte general.</p>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN CONTACTO -->
         <section id="contacto" class="content-section">
-            <h2 class="section-title">Contacto</h2>
-            <div class="card-box text-center">
+            <h2 class="section-title color-change-title">Contacto</h2>
+            <div class="glass-card text-center">
                 <p>¿Interesado en mi perfil o en colaborar en un proyecto? ¡Hablemos!</p>
-                <p><strong>Teléfono:</strong> 5190 3597</p>
+                <p style="margin-top: 10px;"><strong>Teléfono:</strong> 5190 3597</p>
                 <p><strong>Correo Electrónico:</strong> yanehtarias12@gmail.com</p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank">linkedin.com/in/yaneht-arias-a47587385/</a></p>
                 <p><strong>GitHub:</strong> <a href="https://github.com/irm338" target="_blank">github.com/irm338</a></p>
-                <div class="hero-actions" style="margin-top: 20px;">
+                <div class="hero-actions" style="margin-top: 20px; justify-content: center;">
                     <a href="mailto:yanehtarias12@gmail.com" class="btn btn-primary">Enviar Correo</a>
+                    <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" class="btn btn-secondary">Ver LinkedIn</a>
                 </div>
             </div>
         </section>
@@ -175,7 +177,7 @@
         <p>&copy; 2026 Irma Yaneht Arias García. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Enlace al archivo JavaScript externo -->
+    <!-- Archivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
