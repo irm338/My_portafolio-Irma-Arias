@@ -1,5 +1,5 @@
 
-/* Configuración general y reseteo */
+/* Reseteo general */
 * {
     margin: 0;
     padding: 0;
@@ -9,8 +9,8 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
-    color: #111111;
+    background-color: #0b0f19; /* Fondo negro profundo / azul muy oscuro */
+    color: #f3f4f6;
     position: relative;
     overflow-x: hidden;
     line-height: 1.6;
@@ -20,8 +20,8 @@ h1, h2, h3, h4, h5, h6, .logo {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Fondo difuminado / degradado dinámico (Efecto Captura 3) */
-.background-blobs {
+/* Fondo con luces difuminadas intensas y líneas de código de fondo */
+.background-glow {
     position: fixed;
     top: 0;
     left: 0;
@@ -29,39 +29,69 @@ h1, h2, h3, h4, h5, h6, .logo {
     height: 100vh;
     z-index: -1;
     overflow: hidden;
-    filter: blur(80px);
-    opacity: 0.35;
+    background: #05050a;
+}
+
+.code-lines-bg {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 120vw;
+    height: 120vh;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: rgba(45, 212, 191, 0.05); /* Verde aqua muy sutil en formato código */
+    line-height: 2.5;
+    word-break: break-all;
+    user-select: none;
+    z-index: 0;
 }
 
 .blob {
     position: absolute;
     border-radius: 50%;
-    animation: floatBlob 15s infinite alternate ease-in-out;
+    filter: blur(90px);
+    opacity: 0.55;
+    animation: floatBlob 12s infinite alternate ease-in-out;
 }
 
-.blob-lila { width: 300px; height: 300px; background: #c084fc; top: 10%; left: 10%; }
-.blob-aqua { width: 350px; height: 350px; background: #2dd4bf; top: 60%; left: 70%; animation-delay: 2s; }
-.blob-celeste { width: 250px; height: 250px; background: #38bdf8; top: 30%; left: 80%; animation-delay: 4s; }
-.blob-rosado { width: 280px; height: 280px; background: #f472b6; top: 80%; left: 20%; animation-delay: 1s; }
-.blob-amarillo { width: 220px; height: 220px; background: #facc15; top: 20%; left: 50%; animation-delay: 3s; }
-.blob-musgo { width: 320px; height: 320px; background: #65a30d; top: 50%; left: 5%; animation-delay: 5s; }
-.blob-rojo { width: 200px; height: 200px; background: #ef4444; top: 5%; left: 85%; animation-delay: 2.5s; }
-.blob-pavo { width: 270px; height: 270px; background: #0284c7; top: 75%; left: 50%; animation-delay: 3.5s; }
+/* Mezcla de todos tus colores solicitados */
+.blob-lila { width: 350px; height: 350px; background: #c084fc; top: 10%; left: 15%; }
+.blob-aqua { width: 400px; height: 400px; background: #2dd4bf; top: 55%; left: 70%; animation-delay: 2s; }
+.blob-celeste { width: 300px; height: 300px; background: #38bdf8; top: 30%; left: 80%; animation-delay: 4s; }
+.blob-rosado { width: 320px; height: 320px; background: #f472b6; top: 80%; left: 25%; animation-delay: 1s; }
+.blob-amarillo { width: 260px; height: 260px; background: #facc15; top: 15%; left: 55%; animation-delay: 3s; }
+.blob-musgo { width: 360px; height: 360px; background: #65a30d; top: 45%; left: 5%; animation-delay: 5s; }
+.blob-rojo { width: 250px; height: 250px; background: #ef4444; top: 5%; left: 85%; animation-delay: 2.5s; }
+.blob-pavo { width: 300px; height: 300px; background: #0284c7; top: 75%; left: 50%; animation-delay: 3.5s; }
 
 @keyframes floatBlob {
-    0% { transform: translateY(0px) scale(1); }
-    100% { transform: translateY(-40px) scale(1.1); }
+    0% { transform: translateY(0px) scale(1) rotate(0deg); }
+    100% { transform: translateY(-50px) scale(1.15) rotate(10deg); }
 }
 
-/* Barra de navegación superior */
+/* Efecto dinámico de cambio de color en los títulos */
+@keyframes colorShift {
+    0% { color: #c084fc; } /* Lila */
+    25% { color: #2dd4bf; } /* Verde Aqua */
+    50% { color: #38bdf8; } /* Celeste */
+    75% { color: #f472b6; } /* Rosado */
+    100% { color: #facc15; } /* Amarillo */
+}
+
+.color-change-title {
+    animation: colorShift 8s infinite alternate;
+}
+
+/* Barra de navegación superior estilo Glassmorphism */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: rgba(11, 15, 25, 0.75);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     z-index: 1000;
 }
 
@@ -77,12 +107,12 @@ h1, h2, h3, h4, h5, h6, .logo {
 .logo {
     font-weight: 700;
     font-size: 1.2rem;
-    color: #111;
+    color: #ffffff;
 }
 
 .nav-links {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
@@ -90,7 +120,7 @@ h1, h2, h3, h4, h5, h6, .logo {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #333;
+    color: #cbd5e1;
     padding: 6px 14px;
     border-radius: 20px;
     transition: all 0.3s ease;
@@ -98,7 +128,8 @@ h1, h2, h3, h4, h5, h6, .logo {
 
 .nav-btn:hover, .nav-btn.active {
     background: #2dd4bf;
-    color: #ffffff;
+    color: #0b0f19;
+    font-weight: 600;
 }
 
 /* Contenido Principal */
@@ -106,6 +137,8 @@ h1, h2, h3, h4, h5, h6, .logo {
     max-width: 1000px;
     margin: 120px auto 60px auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .content-section {
@@ -116,18 +149,18 @@ h1, h2, h3, h4, h5, h6, .logo {
     font-size: 2rem;
     margin-bottom: 25px;
     font-weight: 700;
-    color: #111;
     border-left: 5px solid #c084fc;
     padding-left: 12px;
 }
 
-/* Tarjetas base de contenido */
-.card-box {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+/* Tarjetas con efecto Glassmorphism elegante sobre fondo oscuro */
+.glass-card {
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 30px;
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Sección Hero / Inicio */
@@ -135,11 +168,7 @@ h1, h2, h3, h4, h5, h6, .logo {
     display: flex;
     align-items: center;
     gap: 30px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.08);
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .profile-img-container {
@@ -152,31 +181,36 @@ h1, h2, h3, h4, h5, h6, .logo {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #c084fc;
+    box-shadow: 0 0 20px rgba(192, 132, 252, 0.4);
 }
 
 .hero-info h1 {
     font-size: 2.2rem;
-    color: #111;
     margin-bottom: 5px;
 }
 
 .hero-info h2 {
     font-size: 1.2rem;
-    color: #555;
+    color: #94a3b8;
     margin-bottom: 10px;
     font-weight: 600;
 }
 
-.hero-location {
-    font-size: 0.95krem;
-    color: #666;
-    margin-bottom: 8px;
+.hero-location, .hero-contact-data, .hero-socials {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin-bottom: 6px;
 }
 
-.hero-contact-data {
-    font-size: 0.95rem;
-    color: #444;
-    margin-bottom: 20px;
+.hero-socials a, .text-center a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hero-socials a:hover, .text-center a:hover {
+    text-decoration: underline;
+    color: #2dd4bf;
 }
 
 .hero-actions {
@@ -184,7 +218,7 @@ h1, h2, h3, h4, h5, h6, .logo {
     gap: 15px;
 }
 
-/* Botones personalizados con Lila y Aqua */
+/* Botones con Lila y Verde Aqua vibrantes */
 .btn {
     text-decoration: none;
     padding: 10px 22px;
@@ -198,42 +232,43 @@ h1, h2, h3, h4, h5, h6, .logo {
 }
 
 .btn-primary {
-    background-color: #c084fc; /* Lila */
-    color: #ffffff;
+    background-color: #c084fc;
+    color: #0b0f19;
 }
 
 .btn-primary:hover {
-    background-color: #a855f7;
+    background-color: #d8b4fe;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(192, 132, 252, 0.4);
+    box-shadow: 0 5px 20px rgba(192, 132, 252, 0.5);
 }
 
 .btn-secondary {
-    background-color: #2dd4bf; /* Verde Aqua */
-    color: #ffffff;
+    background-color: #2dd4bf;
+    color: #0b0f19;
 }
 
 .btn-secondary:hover {
-    background-color: #14b8a6;
+    background-color: #5eead4;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(45, 212, 191, 0.4);
+    box-shadow: 0 5px 20px rgba(45, 212, 191, 0.5);
 }
 
-/* Cuadrícula de Habilidades */
+/* Cuadrículas */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
-.skills-grid h3 {
+.skills-grid h3, .projects-grid h3 {
     margin-bottom: 12px;
-    color: #111;
+    color: #f8fafc;
 }
 
 .skills-grid ul {
     list-style-type: disc;
     padding-left: 20px;
+    color: #cbd5e1;
 }
 
 .skills-grid li {
@@ -241,7 +276,6 @@ h1, h2, h3, h4, h5, h6, .logo {
     font-size: 0.95rem;
 }
 
-/* Cuadrícula de Proyectos */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -249,10 +283,6 @@ h1, h2, h3, h4, h5, h6, .logo {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 16px;
-    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -260,25 +290,19 @@ h1, h2, h3, h4, h5, h6, .logo {
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
-
-.project-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #111;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(45, 212, 191, 0.15);
 }
 
 .project-desc {
     font-size: 0.95rem;
-    color: #555;
+    color: #cbd5e1;
     margin-bottom: 15px;
 }
 
 .project-tech {
     font-size: 0.85rem;
-    color: #666;
+    color: #94a3b8;
     margin-bottom: 20px;
 }
 
@@ -290,21 +314,25 @@ h1, h2, h3, h4, h5, h6, .logo {
 /* Experiencia */
 .exp-item h3 {
     font-size: 1.1rem;
-    color: #111;
+    color: #f8fafc;
 }
 
 .exp-date {
     display: inline-block;
     font-size: 0.85rem;
-    color: #777;
+    color: #38bdf8;
     margin-bottom: 8px;
     font-weight: 500;
+}
+
+.exp-item p {
+    color: #cbd5e1;
 }
 
 .divider {
     border: none;
     height: 1px;
-    background: rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.1);
     margin: 20px 0;
 }
 
@@ -312,14 +340,8 @@ h1, h2, h3, h4, h5, h6, .logo {
     text-align: center;
 }
 
-.text-center a {
-    color: #0284c7;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.text-center a:hover {
-    text-decoration: underline;
+.text-center p {
+    color: #cbd5e1;
 }
 
 /* Pie de página */
@@ -327,23 +349,23 @@ h1, h2, h3, h4, h5, h6, .logo {
     text-align: center;
     padding: 30px;
     font-size: 0.9rem;
-    color: #666;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    color: #94a3b8;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
 }
 
-/* Adaptabilidad a dispositivos móviles */
+/* Responsivo para móviles */
 @media (max-width: 768px) {
     .hero-card {
         flex-direction: column;
         text-align: center;
     }
-    .hero-actions {
+    .hero-actions, .hero-socials {
         justify-content: center;
+        display: flex;
     }
     .nav-links {
-        display: none; /* Simplificado para pantallas pequeñas */
-    }
-    .navbar {
-        justify-content: center;
+        display: none;
     }
 }
