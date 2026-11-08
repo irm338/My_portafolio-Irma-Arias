@@ -1,10 +1,10 @@
+
 // Script interactivo para el portafolio de Irma Arias
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Selección de elementos de navegación y secciones
     const navLinks = document.querySelectorAll(".nav-btn");
 
-    // Efecto interactivo al hacer clic en los botones del menú superior
+    // Activar botón del menú al hacer clic
     navLinks.forEach(link => {
         link.addEventListener("click", function() {
             navLinks.forEach(item => item.classList.remove("active"));
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Cambiar dinámicamente la clase activa del menú según el desplazamiento (Scroll)
+    // Cambiar dinámicamente la clase activa del menú según la posición del scroll
     window.addEventListener("scroll", () => {
         let scrollPos = window.scrollY;
 
@@ -32,5 +32,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    console.log("Portafolio de Irma Yaneht Arias García cargado correctamente.");
+    console.log("Portafolio oscuro y creativo de Irma Yaneht Arias García cargado con éxito.");
 });
