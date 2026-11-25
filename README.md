@@ -38,3 +38,6 @@ A continuación, presento los proyectos desarrollados durante mi formación:
 
 ---
 *Diseño con pasión y rigor técnico. © 2026 Irma Yaneht Arias García.*
+
+## Funciones interactivas
+El portafolio incluye filtros por categoría y una vista rápida para proyectos, descripciones interactivas del stack tecnológico, navegación adaptable a móviles, animaciones de entrada, avance de lectura y una acción para copiar el correo. Está construido con HTML, CSS y JavaScript nativos, sin frameworks externos.

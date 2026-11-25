@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0f19">
+    <meta name="description" content="Portafolio de Irma Yaneht Arias García, estudiante de desarrollo de software en Campuslands.">
     <title>Irma Yaneht Arias García - Portafolio</title>
-    <!-- Fuentes de Google Fonts -->
-    
-    <!-- Enlace a la hoja de estilos -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Indicador de avance de lectura -->
+    <div class="reading-progress" aria-hidden="true">
+        <span class="reading-progress-bar" id="reading-progress-bar"></span>
+    </div>
 
-    <!-- Fondo oscuro con esferas difuminadas de todos los colores y líneas de código -->
-    <div class="background-glow">
-        <div class="code-lines-bg">
-            &lt;html&gt; &lt;body&gt; const developer = "Irma Arias"; &lt;div class="code"&gt; function init() { return true; } &lt;/div&gt; git commit -m "update" npm run build; div &gt; span { color: aqua; }
-        </div>
+    <!-- Fondo decorativo del portafolio -->
+    <div class="background-glow" aria-hidden="true">
+        <div class="code-lines-bg">&lt;html&gt; &lt;body&gt; const developer = "Irma Arias"; &lt;div class="code"&gt; function init() { return true; } &lt;/div&gt; npm run build; div &gt; span { color: aqua; }</div>
         <div class="blob blob-lila"></div>
         <div class="blob blob-aqua"></div>
         <div class="blob blob-celeste"></div>
@@ -26,11 +27,16 @@
         <div class="blob blob-pavo"></div>
     </div>
 
-    <!-- Barra de navegación superior -->
+    <!-- Navegación principal y menú adaptable -->
     <header class="navbar">
         <div class="nav-container">
-            <span class="logo">Irma Arias</span>
-            <nav class="nav-links">
+            <a class="logo" href="#inicio">Irma Arias</a>
+            <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
                 <a href="#inicio" class="nav-btn active">Inicio</a>
                 <a href="#sobre-mi" class="nav-btn">Sobre mí</a>
                 <a href="#habilidades" class="nav-btn">Habilidades</a>
@@ -42,104 +48,157 @@
     </header>
 
     <main class="main-content">
-        <!-- SECCIÓN INICIO -->
-        <section id="inicio" class="hero-section">
+        <!-- Presentación principal con especialidades animadas -->
+        <section id="inicio" class="hero-section reveal">
             <div class="glass-card hero-card">
-                <div class="profile-img-container">     
-                    <img src="./perfil.jpg/WhatsApp Image 2026-09-18 at 8.30.58 PM.jpg" alt="Foto de perfil de Irma Yaneht Arias García" class="profile-img">    
-                   
+                <div class="profile-img-container">
+                    <img src="perfil.jpg" alt="Foto de perfil de Irma Yaneht Arias García" class="profile-img">
                 </div>
                 <div class="hero-info">
+                    <p class="eyebrow">Hola, soy</p>
                     <h1 class="color-change-title">Irma Yaneht Arias García</h1>
                     <h2>Técnico en Desarrollo de Software</h2>
+                    <p class="specialty-line">Exploro y construyo como <span id="typewriter-text" aria-live="polite">Desarrolladora Web Frontend y Backend</span><span class="typewriter-cursor" aria-hidden="true"></span></p>
                     <p class="hero-location">📍 Ciudad de Guatemala, Z.13</p>
                     <div class="hero-contact-data">
-                        <span>📞 5190 3597</span> | 
-                        <span>✉️ yanehtarias12@gmail.com</span>
+                        <span>📞 5190 3597</span>
+                        <span class="contact-divider" aria-hidden="true">|</span>
+                        <a href="mailto:yanehtarias12@gmail.com">✉️ yanehtarias12@gmail.com</a>
                     </div>
-                    <div class="hero-socials" style="margin-top: 8px;">
-                        <span>💼 <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank">LinkedIn</a></span> | 
-                        <span>🐙 <a href="https://github.com/irm338" target="_blank">GitHub</a></span>
+                    <div class="availability"><span class="availability-dot" aria-hidden="true"></span>Disponible para proyectos y colaboraciones</div>
+                    <div class="hero-socials">
+                        <span>💼 <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+                        <span class="contact-divider" aria-hidden="true">|</span>
+                        <span>🐙 <a href="https://github.com/irm338" target="_blank" rel="noopener noreferrer">GitHub</a></span>
                     </div>
-                    <div class="hero-actions" style="margin-top: 15px;">
-                        <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-                        <a href="#contacto" class="btn btn-secondary">Contactar</a>
+                    <div class="hero-actions">
+                        <a href="#proyectos" class="btn btn-primary magnetic-button">Ver proyectos</a>
+                        <a href="#contacto" class="btn btn-secondary magnetic-button">Contactar</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN SOBRE MÍ -->
-        <section id="sobre-mi" class="content-section">
-            <h2 class="section-title color-change-title">Sobre Mí</h2>
+        <!-- Presentación personal -->
+        <section id="sobre-mi" class="content-section reveal">
+            <h2 class="section-title color-change-title">Sobre mí</h2>
             <div class="glass-card">
                 <p>Desarrolladora de software en formación, apasionada por construir aplicaciones web. Enfoque en aplicar buenas prácticas de código limpio y estructurado, buscando que los proyectos sean creativos y funcionales. Me gusta aprender cosas nuevas especialmente si está basada en tecnología, practicar deportes, escuchar música, cocinar y pasar tiempo en familia.</p>
             </div>
         </section>
 
-        <!-- SECCIÓN HABILIDADES -->
-        <section id="habilidades" class="content-section">
-            <h2 class="section-title color-change-title">Habilidades y Competencias</h2>
+        <!-- Formación, competencias y herramientas interactivas -->
+        <section id="habilidades" class="content-section reveal">
+            <h2 class="section-title color-change-title">Habilidades y competencias</h2>
             <div class="skills-grid">
-                <div class="glass-card">
-                    <h3>Habilidades Técnicas</h3>
-                    <ul>
-                        <li><strong>HTML5 & CSS3:</strong> Lenguajes de marcado y diseño responsivo.</li>
-                        <li><strong>JavaScript:</strong> Interactividad y lógica del lado del cliente.</li>
-                        <li><strong>Git & GitHub:</strong> Control de versiones (Usuario: <em>irm338</em>).</li>
-                    </ul>
-                </div>
-                <div class="glass-card">
-                    <h3>Habilidades Adaptativas</h3>
+                <article class="glass-card skills-panel">
+                    <h3>Stack tecnológico</h3>
+                    <p class="skills-hint">Pasa el cursor o selecciona una tecnología para conocer cómo la aplico.</p>
+                    <div class="tech-grid">
+                        <button class="tech-badge" type="button" aria-expanded="false">HTML5<span class="tech-description">Creo la estructura semántica de páginas y tiendas web como CampusShop.</span></button>
+                        <button class="tech-badge" type="button" aria-expanded="false">CSS3<span class="tech-description">Diseño interfaces visuales adaptables para proyectos web.</span></button>
+                        <button class="tech-badge" type="button" aria-expanded="false">JavaScript<span class="tech-description">Añado interactividad y lógica del lado del cliente a mis proyectos.</span></button>
+                        <button class="tech-badge" type="button" aria-expanded="false">Node.js<span class="tech-description">Desarrollo lógica de servidor y aplicaciones como KarenFlix.</span></button>
+                        <button class="tech-badge" type="button" aria-expanded="false">Express<span class="tech-description">Organizo servicios y funcionalidades del lado del servidor.</span></button>
+                        <button class="tech-badge" type="button" aria-expanded="false">PostgreSQL<span class="tech-description">Trabajo con datos y estructuras de bases de datos relacionales.</span></button>
+                        <button class="tech-badge" type="button" aria-expanded="false">Git<span class="tech-description">Registro cambios y mantengo organizado el desarrollo de mis proyectos.</span></button>
+                        <button class="tech-badge" type="button" aria-expanded="false">GitHub<span class="tech-description">Publico y comparto mis proyectos; mi usuario es irm338.</span></button>
+                        <button class="tech-badge" type="button" aria-expanded="false">n8n<span class="tech-description">Exploro automatizaciones para conectar tareas y herramientas.</span></button>
+                    </div>
+                </article>
+                <article class="glass-card">
+                    <h3>Habilidades adaptativas</h3>
                     <p>Resolución de problemas, trabajo en equipo, comunicación asertiva, empatía y adaptabilidad.</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Idiomas y Educación</h3>
+                </article>
+                <article class="glass-card">
+                    <h3>Idiomas y educación</h3>
                     <p><strong>Idiomas:</strong> Español (Nativo) | Inglés (Básico)</p>
                     <p><strong>Educación:</strong> Campuslands y Villa de los Niños.</p>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- SECCIÓN PROYECTOS -->
-        <section id="proyectos" class="content-section">
-            <h2 class="section-title color-change-title">Proyectos Destacados</h2>
-            <div class="projects-grid">
-                <div class="glass-card project-card">
+        <!-- Proyectos con filtros por categoría y vista rápida -->
+        <section id="proyectos" class="content-section reveal">
+            <h2 class="section-title color-change-title">Proyectos destacados</h2>
+            <div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
+                <button class="filter-button is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+                <button class="filter-button" type="button" data-filter="frontend" aria-pressed="false">Frontend</button>
+                <button class="filter-button" type="button" data-filter="backend" aria-pressed="false">Backend / BD</button>
+                <button class="filter-button" type="button" data-filter="movil" aria-pressed="false">Móvil</button>
+            </div>
+            <div class="projects-grid" id="projects-grid" aria-live="polite">
+                <article class="glass-card project-card" data-category="movil" data-project="kid-fit">
+                    <span class="project-category">Móvil</span>
                     <h3>Proyecto Kid-Fit</h3>
                     <p class="project-desc">Aplicación móvil y web interactiva para niños de 5 a 12 años enfocada en promover la actividad física y la hidratación mediante captura de movimiento en tiempo real.</p>
                     <p class="project-tech"><strong>Tecnologías:</strong> React Native, MediaPipe Pose, Firebase</p>
                     <div class="project-buttons">
-                        <a href="#" class="btn btn-primary" target="_blank">Ver Proyecto</a>
-                        <a href="https://github.com/irm338" class="btn btn-secondary" target="_blank">Ver Código</a>
+                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="kid-fit">Ver detalles</button>
+                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="glass-card project-card">
+                <article class="glass-card project-card" data-category="frontend" data-project="campusshop">
+                    <span class="project-category">Frontend</span>
+                    <h3>CampusShop</h3>
+                    <p class="project-desc">Maquetación estática de plataforma e-commerce.</p>
+                    <p class="project-tech"><strong>Tecnologías:</strong> HTML5, CSS3</p>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="campusshop">Ver detalles</button>
+                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
+                    </div>
+                </article>
+
+                <article class="glass-card project-card" data-category="frontend" data-project="campusparking">
+                    <span class="project-category">Frontend</span>
+                    <h3>CampusParking</h3>
+                    <p class="project-desc">Interfaz para administración de estacionamiento.</p>
+                    <p class="project-tech"><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript</p>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="campusparking">Ver detalles</button>
+                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
+                    </div>
+                </article>
+
+                <article class="glass-card project-card" data-category="frontend" data-project="edutrack">
+                    <span class="project-category">Frontend</span>
+                    <h3>EduTrack</h3>
+                    <p class="project-desc">Landing page y dashboard educativo.</p>
+                    <p class="project-tech"><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript</p>
+                    <div class="project-buttons">
+                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="edutrack">Ver detalles</button>
+                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
+                    </div>
+                </article>
+
+                <article class="glass-card project-card" data-category="backend" data-project="karenflix">
+                    <span class="project-category">Backend / BD</span>
                     <h3>KarenFlix - Catálogo</h3>
                     <p class="project-desc">Sistema de gestión de base de datos para un catálogo de películas estructurado bajo relaciones 3NF.</p>
                     <p class="project-tech"><strong>Tecnologías:</strong> Node.js, Express, ClickUp</p>
                     <div class="project-buttons">
-                        <a href="#" class="btn btn-primary" target="_blank">Ver Proyecto</a>
-                        <a href="https://github.com/irm338" class="btn btn-secondary" target="_blank">Ver Código</a>
+                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="karenflix">Ver detalles</button>
+                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338/karen-flix" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="glass-card project-card">
+                <article class="glass-card project-card" data-category="backend" data-project="fitcorecli">
+                    <span class="project-category">Backend / BD</span>
                     <h3>FitCoreCLI-Yani</h3>
                     <p class="project-desc">Aplicación modular de consola para la gestión integral de un gimnasio con patrones de repositorio.</p>
                     <p class="project-tech"><strong>Tecnologías:</strong> Node.js, JavaScript, CLI</p>
                     <div class="project-buttons">
-                        <a href="#" class="btn btn-primary" target="_blank">Ver Proyecto</a>
-                        <a href="https://github.com/irm338" class="btn btn-secondary" target="_blank">Ver Código</a>
+                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="fitcorecli">Ver detalles</button>
+                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- SECCIÓN EXPERIENCIA -->
-        <section id="experiencia" class="content-section">
-            <h2 class="section-title color-change-title">Experiencia Laboral</h2>
+        <!-- Experiencia laboral -->
+        <section id="experiencia" class="content-section reveal">
+            <h2 class="section-title color-change-title">Experiencia laboral</h2>
             <div class="glass-card">
                 <div class="exp-item">
                     <h3>Proyecto Kid-Fit — <em>Desarrollo Móvil / Web</em></h3>
@@ -155,29 +214,47 @@
             </div>
         </section>
 
-        <!-- SECCIÓN CONTACTO -->
-        <section id="contacto" class="content-section">
+        <!-- Datos de contacto y acción para copiar el correo -->
+        <section id="contacto" class="content-section reveal">
             <h2 class="section-title color-change-title">Contacto</h2>
             <div class="glass-card text-center">
                 <p>¿Interesado en mi perfil o en colaborar en un proyecto? ¡Hablemos!</p>
-                <p style="margin-top: 10px;"><strong>Teléfono:</strong> 5190 3597</p>
-                <p><strong>Correo Electrónico:</strong> yanehtarias12@gmail.com</p>
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank">linkedin.com/in/yaneht-arias-a47587385/</a></p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/irm338" target="_blank">github.com/irm338</a></p>
-                <div class="hero-actions" style="margin-top: 20px; justify-content: center;">
-                    <a href="mailto:yanehtarias12@gmail.com" class="btn btn-primary">Enviar Correo</a>
-                    <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" class="btn btn-secondary">Ver LinkedIn</a>
+                <p class="contact-line"><strong>Teléfono:</strong> 5190 3597</p>
+                <p class="contact-line"><strong>Correo electrónico:</strong> <a href="mailto:yanehtarias12@gmail.com">yanehtarias12@gmail.com</a></p>
+                <button class="btn btn-copy magnetic-button" id="copy-email" type="button" data-email="yanehtarias12@gmail.com">Copiar correo</button>
+                <p class="contact-line"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" rel="noopener noreferrer">linkedin.com/in/yaneht-arias-a47587385/</a></p>
+                <p class="contact-line"><strong>GitHub:</strong> <a href="https://github.com/irm338" target="_blank" rel="noopener noreferrer">github.com/irm338</a></p>
+                <div class="hero-actions contact-actions">
+                    <a href="mailto:yanehtarias12@gmail.com" class="btn btn-primary magnetic-button">Enviar correo</a>
+                    <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-button">Ver LinkedIn</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Pie de página -->
+    <!-- Ventana accesible para consultar los detalles de cada proyecto -->
+    <dialog class="project-modal" id="project-modal" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" type="button" aria-label="Cerrar detalles del proyecto">×</button>
+            <p class="eyebrow">Vista rápida del proyecto</p>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <h3>Stack tecnológico</h3>
+            <div class="modal-badges" id="modal-technologies"></div>
+            <a class="btn btn-primary magnetic-button" id="modal-repository" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer">Ver repositorio en GitHub</a>
+        </div>
+    </dialog>
+
+    <!-- Aviso de resultado al copiar el correo -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Acceso flotante para volver al inicio -->
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Volver arriba">↑</button>
+
+    <!-- Interacciones nativas del portafolio -->
     <footer class="footer">
         <p>&copy; 2026 Irma Yaneht Arias García. Todos los derechos reservados.</p>
     </footer>
-
-    <!-- Archivo JavaScript -->
-    <script src="script.js"></script>
+    <script src="javaScript.js" defer></script>
 </body>
 </html>
