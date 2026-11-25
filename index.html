@@ -3,258 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b0f19">
-    <meta name="description" content="Portafolio de Irma Yaneht Arias García, estudiante de desarrollo de software en Campuslands.">
-    <title>Irma Yaneht Arias García - Portafolio</title>
+    <meta name="theme-color" content="#070b19">
+    <meta name="description" content="Portafolio arcade de Irma Yaneht Arias García: misiones, tecnología, pasiones y proyectos.">
+    <title>Irma Yaneht Arias García | Arcade Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="javaScript.js" defer></script>
 </head>
 <body>
-    <!-- Indicador de avance de lectura -->
-    <div class="reading-progress" aria-hidden="true">
-        <span class="reading-progress-bar" id="reading-progress-bar"></span>
-    </div>
+    <!-- Escenario animado del universo arcade -->
+    <canvas class="scene-canvas" id="scene-canvas" aria-hidden="true"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
 
-    <!-- Fondo decorativo del portafolio -->
-    <div class="background-glow" aria-hidden="true">
-        <div class="code-lines-bg">&lt;html&gt; &lt;body&gt; const developer = "Irma Arias"; &lt;div class="code"&gt; function init() { return true; } &lt;/div&gt; npm run build; div &gt; span { color: aqua; }</div>
-        <div class="blob blob-lila"></div>
-        <div class="blob blob-aqua"></div>
-        <div class="blob blob-celeste"></div>
-        <div class="blob blob-rosado"></div>
-        <div class="blob blob-amarillo"></div>
-        <div class="blob blob-musgo"></div>
-        <div class="blob blob-rojo"></div>
-        <div class="blob blob-pavo"></div>
-    </div>
-
-    <!-- Navegación principal y menú adaptable -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a class="logo" href="#inicio">Irma Arias</a>
-            <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
-                <a href="#inicio" class="nav-btn active">Inicio</a>
-                <a href="#sobre-mi" class="nav-btn">Sobre mí</a>
-                <a href="#habilidades" class="nav-btn">Habilidades</a>
-                <a href="#proyectos" class="nav-btn">Proyectos</a>
-                <a href="#experiencia" class="nav-btn">Experiencia</a>
-                <a href="#contacto" class="nav-btn">Contacto</a>
-            </nav>
+    <!-- Marcador de nivel y reproductor sintetizado -->
+    <header class="hud">
+        <a class="player-tag" href="#inicio" aria-label="Volver al inicio">
+            <span class="player-tag__icon" aria-hidden="true">✦</span>
+            <span>IRM338 <b>//</b> <span id="player-level">LVL 18</span></span>
+        </a>
+        <div class="xp-meter" aria-label="Experiencia del recorrido">
+            <div class="xp-meter__labels"><span>XP EXPLORADA</span><strong id="xp-label">0 / 500 XP</strong></div>
+            <div class="xp-meter__track"><span id="xp-fill"></span></div>
+        </div>
+        <div class="music-player" aria-label="Reproductor musical">
+            <div class="music-player__info">
+                <span class="music-player__disc" aria-hidden="true">♫</span>
+                <span><small>RADIO ARCADE</small><strong id="track-name">Beat Urbano</strong></span>
+            </div>
+            <div class="equalizer" id="equalizer" aria-hidden="true"></div>
+            <div class="music-player__controls">
+                <button id="music-play" type="button" aria-label="Reproducir música" title="Reproducir">▶</button>
+                <button id="music-next" type="button" aria-label="Siguiente pista" title="Siguiente pista">⏭</button>
+                <button id="music-mute" type="button" aria-label="Silenciar música" aria-pressed="false" title="Silenciar">◖</button>
+            </div>
         </div>
     </header>
 
-    <main class="main-content">
-        <!-- Presentación principal con especialidades animadas -->
-        <section id="inicio" class="hero-section reveal">
-            <div class="glass-card hero-card">
-                <div class="profile-img-container">
-                    <img src="perfil.jpg" alt="Foto de perfil de Irma Yaneht Arias García" class="profile-img">
+    <main>
+        <!-- Menú principal del juego -->
+        <section class="hero section-shell" id="inicio" data-xp="true">
+            <div class="hero__copy">
+                <p class="eyebrow"><span class="status-dot"></span> PORTAFOLIO INTERACTIVO · GUATEMALA</p>
+                <p class="hero__hello">¡HOLA, JUGADORA!</p>
+                <h1>Irma Yaneht<br><span>Arias García</span></h1>
+                <p class="hero__role">Técnico en Desarrollo de Software</p>
+                <p class="hero__type-line">MODO ACTUAL: <strong id="typewriter-text">Desarrolladora Web Frontend y Backend</strong><i aria-hidden="true"></i></p>
+                <p class="hero__intro">Construyo experiencias digitales, conecto ideas y convierto cada reto en una nueva misión.</p>
+                <div class="hero__actions">
+                    <a class="arcade-button arcade-button--pink" href="#misiones">▶ EXPLORAR MISIONES</a>
+                    <a class="arcade-button arcade-button--outline" href="#minijuego">¡JUGAR MODO TURBO!</a>
                 </div>
-                <div class="hero-info">
-                    <p class="eyebrow">Hola, soy</p>
-                    <h1 class="color-change-title">Irma Yaneht Arias García</h1>
-                    <h2>Técnico en Desarrollo de Software</h2>
-                    <p class="specialty-line">Exploro y construyo como <span id="typewriter-text" aria-live="polite">Desarrolladora Web Frontend y Backend</span><span class="typewriter-cursor" aria-hidden="true"></span></p>
-                    <p class="hero-location">📍 Ciudad de Guatemala, Z.13</p>
-                    <div class="hero-contact-data">
-                        <span>📞 5190 3597</span>
-                        <span class="contact-divider" aria-hidden="true">|</span>
-                        <a href="mailto:yanehtarias12@gmail.com">✉️ yanehtarias12@gmail.com</a>
-                    </div>
-                    <div class="availability"><span class="availability-dot" aria-hidden="true"></span>Disponible para proyectos y colaboraciones</div>
-                    <div class="hero-socials">
-                        <span>💼 <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
-                        <span class="contact-divider" aria-hidden="true">|</span>
-                        <span>🐙 <a href="https://github.com/irm338" target="_blank" rel="noopener noreferrer">GitHub</a></span>
-                    </div>
-                    <div class="hero-actions">
-                        <a href="#proyectos" class="btn btn-primary magnetic-button">Ver proyectos</a>
-                        <a href="#contacto" class="btn btn-secondary magnetic-button">Contactar</a>
-                    </div>
+                <nav class="arcade-menu" aria-label="Menú principal del juego">
+                    <a class="arcade-menu__item" href="#misiones"><span>01</span> MISIONES <b>↗</b></a>
+                    <a class="arcade-menu__item" href="#arsenal"><span>02</span> ARSENAL TECH <b>↗</b></a>
+                    <a class="arcade-menu__item" href="#mundo"><span>03</span> MI MUNDO &amp; GARAJE <b>↗</b></a>
+                    <a class="arcade-menu__item" href="#minijuego"><span>04</span> MINI-JUEGO <b>↗</b></a>
+                    <a class="arcade-menu__item" href="#contacto"><span>05</span> CONTACTO <b>↗</b></a>
+                </nav>
+                <p class="keyboard-hint">NAVEGA CON <kbd>↑</kbd> <kbd>↓</kbd> Y <kbd>ENTER</kbd></p>
+            </div>
+            <div class="hero__visual">
+                <div class="orbit orbit--one"></div>
+                <div class="orbit orbit--two"></div>
+                <div class="profile-frame">
+                    <span class="profile-frame__corner profile-frame__corner--tl"></span>
+                    <span class="profile-frame__corner profile-frame__corner--br"></span>
+                    <img src="perfil.jpg" alt="Foto de perfil de Irma Yaneht Arias García">
+                </div>
+                <div class="hero-sticker hero-sticker--top">PLAYER<br><b>ONE</b></div>
+                <div class="hero-sticker hero-sticker--bottom">✦ LISTA<br>PARA CREAR</div>
+                <div class="hero-coordinate">14°35' N<br>90°31' O</div>
+            </div>
+            <a class="scroll-cue" href="#sobre-mi" aria-label="Continuar al perfil">DESLIZA PARA EXPLORAR <span>↓</span></a>
+        </section>
+
+        <!-- Perfil, ubicación, contacto y formación personal -->
+        <section class="content-section section-shell" id="sobre-mi" data-xp="true">
+            <div class="section-heading">
+                <p class="eyebrow">01 / PERFIL DE JUGADORA</p>
+                <h2>Sobre <span>mí</span></h2>
+            </div>
+            <div class="profile-panel arcade-panel">
+                <div class="profile-panel__stamp">IRMA<br>338</div>
+                <div>
+                    <p class="profile-panel__lead">Desarrolladora de software en formación, curiosa por naturaleza y lista para el siguiente nivel.</p>
+                    <p>Me apasiona construir aplicaciones web con código limpio y estructurado. Disfruto aprender sobre tecnología, practicar deportes, escuchar música, cocinar y pasar tiempo en familia.</p>
+                </div>
+                <div class="profile-stats">
+                    <div><span>📍</span><p>Ciudad de Guatemala<br><b>Zona 13</b></p></div>
+                    <div><span>☎</span><p>CONTACTO<br><b>5190 3597</b></p></div>
+                    <div><span>🎓</span><p>FORMACIÓN<br><b>Campuslands</b></p></div>
                 </div>
             </div>
         </section>
 
-        <!-- Presentación personal -->
-        <section id="sobre-mi" class="content-section reveal">
-            <h2 class="section-title color-change-title">Sobre mí</h2>
-            <div class="glass-card">
-                <p>Desarrolladora de software en formación, apasionada por construir aplicaciones web. Enfoque en aplicar buenas prácticas de código limpio y estructurado, buscando que los proyectos sean creativos y funcionales. Me gusta aprender cosas nuevas especialmente si está basada en tecnología, practicar deportes, escuchar música, cocinar y pasar tiempo en familia.</p>
+        <!-- Misiones con filtro y fichas de proyecto -->
+        <section class="content-section section-shell" id="misiones" data-xp="true">
+            <div class="section-heading section-heading--row">
+                <div><p class="eyebrow">02 / ARCHIVO DE MISIONES</p><h2>Proyectos <span>destacados</span></h2></div>
+                <span class="section-index">5 PROYECTOS · 1 OBJETIVO</span>
             </div>
-        </section>
-
-        <!-- Formación, competencias y herramientas interactivas -->
-        <section id="habilidades" class="content-section reveal">
-            <h2 class="section-title color-change-title">Habilidades y competencias</h2>
-            <div class="skills-grid">
-                <article class="glass-card skills-panel">
-                    <h3>Stack tecnológico</h3>
-                    <p class="skills-hint">Pasa el cursor o selecciona una tecnología para conocer cómo la aplico.</p>
-                    <div class="tech-grid">
-                        <button class="tech-badge" type="button" aria-expanded="false">HTML5<span class="tech-description">Creo la estructura semántica de páginas y tiendas web como CampusShop.</span></button>
-                        <button class="tech-badge" type="button" aria-expanded="false">CSS3<span class="tech-description">Diseño interfaces visuales adaptables para proyectos web.</span></button>
-                        <button class="tech-badge" type="button" aria-expanded="false">JavaScript<span class="tech-description">Añado interactividad y lógica del lado del cliente a mis proyectos.</span></button>
-                        <button class="tech-badge" type="button" aria-expanded="false">Node.js<span class="tech-description">Desarrollo lógica de servidor y aplicaciones como KarenFlix.</span></button>
-                        <button class="tech-badge" type="button" aria-expanded="false">Express<span class="tech-description">Organizo servicios y funcionalidades del lado del servidor.</span></button>
-                        <button class="tech-badge" type="button" aria-expanded="false">PostgreSQL<span class="tech-description">Trabajo con datos y estructuras de bases de datos relacionales.</span></button>
-                        <button class="tech-badge" type="button" aria-expanded="false">Git<span class="tech-description">Registro cambios y mantengo organizado el desarrollo de mis proyectos.</span></button>
-                        <button class="tech-badge" type="button" aria-expanded="false">GitHub<span class="tech-description">Publico y comparto mis proyectos; mi usuario es irm338.</span></button>
-                        <button class="tech-badge" type="button" aria-expanded="false">n8n<span class="tech-description">Exploro automatizaciones para conectar tareas y herramientas.</span></button>
-                    </div>
-                </article>
-                <article class="glass-card">
-                    <h3>Habilidades adaptativas</h3>
-                    <p>Resolución de problemas, trabajo en equipo, comunicación asertiva, empatía y adaptabilidad.</p>
-                </article>
-                <article class="glass-card">
-                    <h3>Idiomas y educación</h3>
-                    <p><strong>Idiomas:</strong> Español (Nativo) | Inglés (Básico)</p>
-                    <p><strong>Educación:</strong> Campuslands y Villa de los Niños.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Proyectos con filtros por categoría y vista rápida -->
-        <section id="proyectos" class="content-section reveal">
-            <h2 class="section-title color-change-title">Proyectos destacados</h2>
-            <div class="project-filters" role="group" aria-label="Filtrar proyectos por categoría">
-                <button class="filter-button is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
-                <button class="filter-button" type="button" data-filter="frontend" aria-pressed="false">Frontend</button>
-                <button class="filter-button" type="button" data-filter="backend" aria-pressed="false">Backend / BD</button>
-                <button class="filter-button" type="button" data-filter="movil" aria-pressed="false">Móvil</button>
+            <div class="project-filters" role="group" aria-label="Filtrar misiones por categoría">
+                <button class="filter-button is-active" type="button" data-filter="todos" aria-pressed="true">TODAS LAS MISIONES</button>
+                <button class="filter-button" type="button" data-filter="frontend" aria-pressed="false">FRONTEND</button>
+                <button class="filter-button" type="button" data-filter="backend" aria-pressed="false">BACKEND / BD</button>
+                <button class="filter-button" type="button" data-filter="movil" aria-pressed="false">MÓVIL</button>
             </div>
             <div class="projects-grid" id="projects-grid" aria-live="polite">
-                <article class="glass-card project-card" data-category="movil" data-project="kid-fit">
-                    <span class="project-category">Móvil</span>
-                    <h3>Proyecto Kid-Fit</h3>
-                    <p class="project-desc">Aplicación móvil y web interactiva para niños de 5 a 12 años enfocada en promover la actividad física y la hidratación mediante captura de movimiento en tiempo real.</p>
-                    <p class="project-tech"><strong>Tecnologías:</strong> React Native, MediaPipe Pose, Firebase</p>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="kid-fit">Ver detalles</button>
-                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
-                    </div>
+                <article class="mission-card mission-card--pink" data-category="movil">
+                    <div class="mission-card__top"><span>MISIÓN 01</span><span class="mission-card__icon">♡</span></div>
+                    <span class="mission-category">MÓVIL / BIENESTAR</span>
+                    <h3>Kid-Fit</h3>
+                    <p>Aplicación móvil y web interactiva para niños de 5 a 12 años que promueve la actividad física y la hidratación mediante captura de movimiento en tiempo real.</p>
+                    <div class="mission-tech">REACT NATIVE · MEDIAPIPE POSE · FIREBASE</div>
+                    <button class="mission-open" type="button" data-project="kid-fit">INSPECCIONAR MISIÓN <span>↗</span></button>
                 </article>
-
-                <article class="glass-card project-card" data-category="frontend" data-project="campusshop">
-                    <span class="project-category">Frontend</span>
+                <article class="mission-card mission-card--yellow" data-category="frontend">
+                    <div class="mission-card__top"><span>MISIÓN 02</span><span class="mission-card__icon">▧</span></div>
+                    <span class="mission-category">FRONTEND / COMERCIO</span>
                     <h3>CampusShop</h3>
-                    <p class="project-desc">Maquetación estática de plataforma e-commerce.</p>
-                    <p class="project-tech"><strong>Tecnologías:</strong> HTML5, CSS3</p>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="campusshop">Ver detalles</button>
-                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
-                    </div>
+                    <p>Maquetación estática de una plataforma de comercio electrónico, enfocada en una experiencia clara y atractiva.</p>
+                    <div class="mission-tech">HTML5 · CSS3</div>
+                    <button class="mission-open" type="button" data-project="campusshop">INSPECCIONAR MISIÓN <span>↗</span></button>
                 </article>
-
-                <article class="glass-card project-card" data-category="frontend" data-project="campusparking">
-                    <span class="project-category">Frontend</span>
+                <article class="mission-card mission-card--blue" data-category="frontend">
+                    <div class="mission-card__top"><span>MISIÓN 03</span><span class="mission-card__icon">▤</span></div>
+                    <span class="mission-category">FRONTEND / SERVICIOS</span>
                     <h3>CampusParking</h3>
-                    <p class="project-desc">Interfaz para administración de estacionamiento.</p>
-                    <p class="project-tech"><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript</p>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="campusparking">Ver detalles</button>
-                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
-                    </div>
+                    <p>Interfaz para administración de estacionamiento, con interacciones construidas para resolver tareas de gestión.</p>
+                    <div class="mission-tech">HTML5 · CSS3 · JAVASCRIPT</div>
+                    <button class="mission-open" type="button" data-project="campusparking">INSPECCIONAR MISIÓN <span>↗</span></button>
                 </article>
-
-                <article class="glass-card project-card" data-category="frontend" data-project="edutrack">
-                    <span class="project-category">Frontend</span>
+                <article class="mission-card mission-card--purple" data-category="frontend">
+                    <div class="mission-card__top"><span>MISIÓN 04</span><span class="mission-card__icon">✦</span></div>
+                    <span class="mission-category">FRONTEND / EDUCACIÓN</span>
                     <h3>EduTrack</h3>
-                    <p class="project-desc">Landing page y dashboard educativo.</p>
-                    <p class="project-tech"><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript</p>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="edutrack">Ver detalles</button>
-                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
-                    </div>
+                    <p>Landing page y panel educativo que reúne contenido en una experiencia digital para el aprendizaje.</p>
+                    <div class="mission-tech">HTML5 · CSS3 · JAVASCRIPT</div>
+                    <button class="mission-open" type="button" data-project="edutrack">INSPECCIONAR MISIÓN <span>↗</span></button>
                 </article>
-
-                <article class="glass-card project-card" data-category="backend" data-project="karenflix">
-                    <span class="project-category">Backend / BD</span>
-                    <h3>KarenFlix - Catálogo</h3>
-                    <p class="project-desc">Sistema de gestión de base de datos para un catálogo de películas estructurado bajo relaciones 3NF.</p>
-                    <p class="project-tech"><strong>Tecnologías:</strong> Node.js, Express, ClickUp</p>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="karenflix">Ver detalles</button>
-                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338/karen-flix" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
-                    </div>
+                <article class="mission-card mission-card--cyan" data-category="backend">
+                    <div class="mission-card__top"><span>MISIÓN 05</span><span class="mission-card__icon">▣</span></div>
+                    <span class="mission-category">BACKEND / BASE DE DATOS</span>
+                    <h3>KarenFlix</h3>
+                    <p>Sistema de gestión de base de datos para un catálogo de películas, estructurado bajo relaciones 3NF.</p>
+                    <div class="mission-tech">NODE.JS · EXPRESS · CLICKUP</div>
+                    <button class="mission-open" type="button" data-project="karenflix">INSPECCIONAR MISIÓN <span>↗</span></button>
                 </article>
-
-                <article class="glass-card project-card" data-category="backend" data-project="fitcorecli">
-                    <span class="project-category">Backend / BD</span>
+                <article class="mission-card mission-card--orange" data-category="backend">
+                    <div class="mission-card__top"><span>MISIÓN EXTRA</span><span class="mission-card__icon">⌘</span></div>
+                    <span class="mission-category">BACKEND / CONSOLA</span>
                     <h3>FitCoreCLI-Yani</h3>
-                    <p class="project-desc">Aplicación modular de consola para la gestión integral de un gimnasio con patrones de repositorio.</p>
-                    <p class="project-tech"><strong>Tecnologías:</strong> Node.js, JavaScript, CLI</p>
-                    <div class="project-buttons">
-                        <button class="btn btn-primary project-details magnetic-button" type="button" data-project="fitcorecli">Ver detalles</button>
-                        <a class="btn btn-secondary magnetic-button" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer" data-repo-link>Ver código</a>
-                    </div>
+                    <p>Aplicación modular de consola para la gestión integral de un gimnasio con patrones de repositorio.</p>
+                    <div class="mission-tech">NODE.JS · JAVASCRIPT · CLI</div>
+                    <button class="mission-open" type="button" data-project="fitcorecli">INSPECCIONAR MISIÓN <span>↗</span></button>
                 </article>
             </div>
         </section>
 
-        <!-- Experiencia laboral -->
-        <section id="experiencia" class="content-section reveal">
-            <h2 class="section-title color-change-title">Experiencia laboral</h2>
-            <div class="glass-card">
-                <div class="exp-item">
-                    <h3>Proyecto Kid-Fit — <em>Desarrollo Móvil / Web</em></h3>
-                    <span class="exp-date">2026 (En proceso)</span>
-                    <p>Desarrollo de aplicación móvil infantil para promover el ejercicio y la hidratación con arquitectura serverless en Firebase.</p>
+        <!-- Tecnologías de la jugadora y formación -->
+        <section class="content-section section-shell" id="arsenal" data-xp="true">
+            <div class="section-heading">
+                <p class="eyebrow">03 / EQUIPO Y HABILIDADES</p>
+                <h2>Arsenal <span>tech</span></h2>
+            </div>
+            <div class="arsenal-layout">
+                <div class="arsenal-panel arcade-panel">
+                    <h3>TECNOLOGÍAS DESBLOQUEADAS</h3>
+                    <p>Selecciona una insignia para consultar cómo la aplico.</p>
+                    <div class="tech-grid">
+                        <button class="tech-badge" type="button" aria-expanded="false" data-description="Creo estructuras semánticas para páginas y tiendas web como CampusShop.">HTML5</button>
+                        <button class="tech-badge" type="button" aria-expanded="false" data-description="Diseño interfaces visuales adaptables para proyectos web.">CSS3</button>
+                        <button class="tech-badge" type="button" aria-expanded="false" data-description="Añado interactividad y lógica del lado del cliente a mis proyectos.">JavaScript</button>
+                        <button class="tech-badge" type="button" aria-expanded="false" data-description="Desarrollo lógica de servidor y aplicaciones como KarenFlix.">Node.js</button>
+                        <button class="tech-badge" type="button" aria-expanded="false" data-description="Organizo servicios y funcionalidades del lado del servidor.">Express</button>
+                        <button class="tech-badge" type="button" aria-expanded="false" data-description="Trabajo con datos y estructuras de bases de datos relacionales.">PostgreSQL</button>
+                        <button class="tech-badge" type="button" aria-expanded="false" data-description="Registro cambios y mantengo organizado el desarrollo de mis proyectos.">Git</button>
+                        <button class="tech-badge" type="button" aria-expanded="false" data-description="Publico y comparto mis proyectos; mi usuario es irm338.">GitHub</button>
+                        <button class="tech-badge" type="button" aria-expanded="false" data-description="Exploro automatizaciones para conectar tareas y herramientas.">n8n</button>
+                    </div>
+                    <div class="tech-readout" id="tech-readout" aria-live="polite">ELIGE UNA TECNOLOGÍA PARA VER SUS DATOS.</div>
                 </div>
-                <hr class="divider">
-                <div class="exp-item">
-                    <h3>IT Generalista — <em>IntouchCX</em></h3>
-                    <span class="exp-date">2025 - 2026</span>
-                    <p>Atención directa al cliente, resolución de problemas técnicos a nivel computacional y soporte general.</p>
+                <div class="arsenal-side">
+                    <article class="arcade-panel mini-panel">
+                        <span class="mini-panel__icon">◈</span>
+                        <div><h3>FORMACIÓN</h3><p><strong>Campuslands</strong><br>Desarrollo Web y Programación de Sistemas</p><p><strong>Villa de los Niños</strong></p></div>
+                    </article>
+                    <article class="arcade-panel mini-panel">
+                        <span class="mini-panel__icon">✧</span>
+                        <div><h3>HABILIDADES ADAPTATIVAS</h3><p>Resolución de problemas, trabajo en equipo, comunicación asertiva, empatía y adaptabilidad.</p><p><strong>Idiomas:</strong> Español (Nativo) · Inglés (Básico)</p></div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Datos de contacto y acción para copiar el correo -->
-        <section id="contacto" class="content-section reveal">
-            <h2 class="section-title color-change-title">Contacto</h2>
-            <div class="glass-card text-center">
-                <p>¿Interesado en mi perfil o en colaborar en un proyecto? ¡Hablemos!</p>
-                <p class="contact-line"><strong>Teléfono:</strong> 5190 3597</p>
-                <p class="contact-line"><strong>Correo electrónico:</strong> <a href="mailto:yanehtarias12@gmail.com">yanehtarias12@gmail.com</a></p>
-                <button class="btn btn-copy magnetic-button" id="copy-email" type="button" data-email="yanehtarias12@gmail.com">Copiar correo</button>
-                <p class="contact-line"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" rel="noopener noreferrer">linkedin.com/in/yaneht-arias-a47587385/</a></p>
-                <p class="contact-line"><strong>GitHub:</strong> <a href="https://github.com/irm338" target="_blank" rel="noopener noreferrer">github.com/irm338</a></p>
-                <div class="hero-actions contact-actions">
-                    <a href="mailto:yanehtarias12@gmail.com" class="btn btn-primary magnetic-button">Enviar correo</a>
-                    <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-button">Ver LinkedIn</a>
+        <!-- Pasiones de la jugadora y controles interactivos -->
+        <section class="content-section section-shell" id="mundo" data-xp="true">
+            <div class="section-heading">
+                <p class="eyebrow">04 / ZONA LIBRE</p>
+                <h2>Mi mundo <span>&amp; garaje</span></h2>
+                <p class="section-subtitle">Mis pasiones también tienen su propio modo de juego.</p>
+            </div>
+            <div class="world-grid">
+                <article class="world-card world-card--bike">
+                    <div class="world-card__heading"><span class="world-icon">🏍️</span><span class="world-label">GARAJE / 01</span></div>
+                    <h3>Motos deportivas</h3>
+                    <p>¡Calienta el motor y sube las revoluciones!</p>
+                    <div class="bike-dash"><span>RPM <b id="bike-rpm">1200</b></span><span>KM/H <b id="bike-speed">0</b></span></div>
+                    <div class="rpm-track"><span id="rpm-fill"></span></div>
+                    <button class="world-button" id="bike-accelerate" type="button">MANTÉN PARA ACELERAR</button>
+                </article>
+                <article class="world-card world-card--car" id="car-card">
+                    <div class="world-card__heading"><span class="world-icon">🏎️</span><span class="world-label">GARAJE / 02</span></div>
+                    <h3>Autos deportivos</h3>
+                    <p>Activa el nitro y deja una estela de luz.</p>
+                    <div class="turbo-gauge"><span id="turbo-gauge-fill"></span><b id="turbo-label">NITRO LISTO</b></div>
+                    <button class="world-button" id="turbo-button" type="button">⚡ ACTIVAR TURBO</button>
+                    <div class="speed-streaks" aria-hidden="true"></div>
+                </article>
+                <article class="world-card world-card--football">
+                    <div class="world-card__heading"><span class="world-icon">⚽</span><span class="world-label">RETO / 03</span></div>
+                    <h3>Tiro a gol</h3>
+                    <p>Apunta al arco y suma goles.</p>
+                    <button class="goal-net" id="goal-button" type="button" aria-label="Patear el balón hacia el arco"><span>🥅</span><b>⚽</b></button>
+                    <p class="goal-score">GOLES <strong id="goal-count">0</strong><span id="goal-message">¡Toca el balón!</span></p>
+                </article>
+                <article class="world-card world-card--dance" id="dance-card">
+                    <div class="world-card__heading"><span class="world-icon">🎵</span><span class="world-label">RITMO / 04</span></div>
+                    <h3>Música &amp; baile</h3>
+                    <p>Enciende la pista con un toque.</p>
+                    <button class="dance-floor" id="dance-button" type="button">✦<span>BAILAR</span>✦</button>
+                    <div class="dance-waves" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </article>
+                <article class="world-card world-card--terminal">
+                    <div class="world-card__heading"><span class="world-icon">⌨️</span><span class="world-label">LAB / 05</span></div>
+                    <h3>Programación &amp; automatización</h3>
+                    <p>Terminal rápida del perfil.</p>
+                    <div class="terminal-screen" id="terminal-output" aria-live="polite"><span>&gt; Bienvenida, jugadora.</span><span>&gt; Escribe ayuda para ver comandos.</span></div>
+                    <form id="terminal-form" class="terminal-form">
+                        <label for="terminal-input">&gt;</label>
+                        <input id="terminal-input" type="text" autocomplete="off" aria-label="Escribe un comando de terminal" placeholder="ayuda">
+                        <button type="submit" aria-label="Ejecutar comando">↵</button>
+                    </form>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experiencia profesional -->
+        <section class="content-section section-shell" id="experiencia" data-xp="true">
+            <div class="section-heading">
+                <p class="eyebrow">05 / TRAYECTORIA</p>
+                <h2>Experiencia <span>en juego</span></h2>
+            </div>
+            <div class="experience-grid">
+                <article class="arcade-panel experience-card"><span class="experience-date">2026 · EN PROCESO</span><h3>Proyecto Kid-Fit</h3><p>Desarrollo móvil y web para promover el ejercicio y la hidratación con arquitectura serverless en Firebase.</p></article>
+                <article class="arcade-panel experience-card"><span class="experience-date">2025 — 2026</span><h3>IT Generalista · IntouchCX</h3><p>Atención directa al cliente, resolución de problemas técnicos a nivel computacional y soporte general.</p></article>
+            </div>
+        </section>
+
+        <!-- Minijuego de conducción con controles táctiles -->
+        <section class="content-section section-shell" id="minijuego" data-xp="true">
+            <div class="section-heading section-heading--row">
+                <div><p class="eyebrow">06 / BONUS STAGE</p><h2>YANI <span>TURBO RUN</span></h2></div>
+                <div class="high-score">HIGH SCORE <strong id="high-score">0000</strong></div>
+            </div>
+            <div class="game-panel arcade-panel">
+                <div class="game-hud"><span>PUNTAJE <strong id="game-score">0000</strong></span><span id="game-status">PULSA JUGAR PARA ARRANCAR</span><span>ATRAPA ✦ · ESQUIVA ■</span></div>
+                <div class="game-screen">
+                    <canvas id="game-canvas" width="900" height="360" aria-label="Minijuego Yani Turbo Run: esquiva obstáculos y recoge objetos"></canvas>
+                    <div class="game-overlay" id="game-overlay">
+                        <p>PISTA NEÓN / MODO ARCADE</p>
+                        <h3>¿LISTA PARA LA CARRERA?</h3>
+                        <button class="arcade-button arcade-button--pink" id="game-start" type="button">▶ JUGAR MODO TURBO</button>
+                    </div>
+                </div>
+                <div class="game-controls">
+                    <p>← → o A / D para moverte · Atrapa objetos para sumar</p>
+                    <div class="touch-controls" aria-label="Controles táctiles del minijuego">
+                        <button type="button" data-game-direction="left" aria-label="Mover a la izquierda">◀</button>
+                        <button type="button" data-game-direction="right" aria-label="Mover a la derecha">▶</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto, enlaces sociales y botón de copiar correo -->
+        <section class="content-section section-shell" id="contacto" data-xp="true">
+            <div class="contact-panel arcade-panel">
+                <div>
+                    <p class="eyebrow">07 / ABRIMOS CANAL</p>
+                    <h2>¿Creamos algo <span>increíble?</span></h2>
+                    <p>¿Interesado en mi perfil o en colaborar en un proyecto? ¡Hablemos!</p>
+                </div>
+                <div class="contact-details">
+                    <a class="contact-email" href="mailto:yanehtarias12@gmail.com">yanehtarias12@gmail.com</a>
+                    <p>☎ 5190 3597 · Ciudad de Guatemala, Z.13</p>
+                    <div class="contact-links">
+                        <a href="https://github.com/irm338" target="_blank" rel="noopener noreferrer">GITHUB / IRM338 ↗</a>
+                        <a href="https://www.linkedin.com/in/yaneht-arias-a47587385/" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+                    </div>
+                    <button class="arcade-button arcade-button--yellow" id="copy-email" type="button" data-email="yanehtarias12@gmail.com">▣ COPIAR CORREO</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Ventana accesible para consultar los detalles de cada proyecto -->
+    <!-- Ficha de inspección para las misiones -->
     <dialog class="project-modal" id="project-modal" aria-labelledby="modal-title">
         <div class="modal-content">
-            <button class="modal-close" id="modal-close" type="button" aria-label="Cerrar detalles del proyecto">×</button>
-            <p class="eyebrow">Vista rápida del proyecto</p>
+            <button class="modal-close" id="modal-close" type="button" aria-label="Cerrar ficha de misión">×</button>
+            <p class="eyebrow">FICHA DE MISIÓN / DETALLES</p>
             <h2 id="modal-title"></h2>
             <p id="modal-description"></p>
-            <h3>Stack tecnológico</h3>
+            <h3>ARSENAL UTILIZADO</h3>
             <div class="modal-badges" id="modal-technologies"></div>
-            <a class="btn btn-primary magnetic-button" id="modal-repository" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer">Ver repositorio en GitHub</a>
+            <a class="arcade-button arcade-button--pink" id="modal-repository" href="https://github.com/irm338" target="_blank" rel="noopener noreferrer">ABRIR CÓDIGO EN GITHUB ↗</a>
         </div>
     </dialog>
 
-    <!-- Aviso de resultado al copiar el correo -->
+    <!-- Notificaciones tipo logro desbloqueado -->
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-    <!-- Acceso flotante para volver al inicio -->
-    <button class="back-to-top" id="back-to-top" type="button" aria-label="Volver arriba">↑</button>
-
-    <!-- Interacciones nativas del portafolio -->
-    <footer class="footer">
-        <p>&copy; 2026 Irma Yaneht Arias García. Todos los derechos reservados.</p>
-    </footer>
-    <script src="javaScript.js" defer></script>
+    <footer class="footer"><p>IRMA YANEHT ARIAS GARCÍA · HECHO CON CURIOSIDAD Y CÓDIGO ✦ © 2026</p></footer>
 </body>
 </html>
